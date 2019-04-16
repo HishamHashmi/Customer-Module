@@ -240,6 +240,8 @@
     <Content Include="js\min\video_player.min.js" />
     <Content Include="js\theme.js" />
     <Content Include="js\video_player.js" />
+    <Content Include="restaurantDetails.aspx" />
+    <Content Include="restaurantSearch.aspx" />
     <Content Include="vendors\bootatrap-date-time\bootstrap-datetimepicker.min.css" />
     <Content Include="vendors\bootatrap-date-time\bootstrap-datetimepicker.min.js" />
     <Content Include="vendors\bootstrap-selector\bootstrap-select.css" />
@@ -364,6 +366,20 @@
       <DependentUpon>Project.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="restaurantDetails.aspx.cs">
+      <DependentUpon>restaurantDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="restaurantDetails.aspx.designer.cs">
+      <DependentUpon>restaurantDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="restaurantSearch.aspx.cs">
+      <DependentUpon>restaurantSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="restaurantSearch.aspx.designer.cs">
+      <DependentUpon>restaurantSearch.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

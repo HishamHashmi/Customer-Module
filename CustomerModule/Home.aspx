@@ -292,7 +292,7 @@
             <div class="container">
                 <div class="s_black_title">
                     <h3>Order Your</h3>
-                    <h2>Food</h2>
+                    <h2>Favourite Food</h2>
                 </div>
                 <div class="feature_slider">
                     <div class="item">
