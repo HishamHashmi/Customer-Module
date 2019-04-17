@@ -2,32 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <header class="main_menu_area">
-            <nav class="navbar navbar-default">
-                <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="home.html"><img src="images/DK.png" style="width:172px;height:52px;" alt=""></a>
-                    </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                           <li><a href="#">Login</a></li>
-                           <li><a href="#">Sign Up</a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>
-        </header>
-        <!--================End Footer Area =================-->
           <section class="banner_area">
             <div class="container">
                 <div class="banner_content">
@@ -50,161 +24,39 @@
                     </div>
             <div class="container">
                 <div class="row">
+                    <div class= "col-lg-12 col-md-12 col-sm-12">
                 <div class="popular_filter" style="margin-top:30px;">
                     <ul>
-                        <li class="active" data-filter="*"><a href="">All</a></li>
-                        <li data-filter=".break"><a href="">Location</a></li>
-                        <li data-filter=".lunch"><a href="">Cuisine</a></li>
+                        <li class="active" data-filter="*"><a href="#">All</a></li>
+                        <li data-filter=".break"><a href="#">Location</a></li>
+                        <li data-filter=".lunch"><a href="#">Cuisine</a></li>
                       </ul>
                 </div>
                 <div class="p_recype_item_main">
                     <div class="row p_recype_item_active">
-                        <div class="col-md-4 col-sm-6 break snacks">
+                        <asp:Repeater ID="RepeaterImages" runat="server">
+                        <ItemTemplate>
+                        <div class="col-md-4 col-sm-4 break snacks">
                             <div class="feature_item">
                                 <div class="feature_item_inner">
-                                    <img src="img/menu-grid/Menu_Grid-1.jpg" alt="">
+                                    <asp:Image ID="ImageRestaurant" ImageUrl='<%# Eval("restaurantDP") %>' runat="server" style="width:350px;" />
                                     <div class="icon_hover">
-                                        <a href="restaurantDetails.html"><i class="fa fa-search"></i></a>
-                                        <i class="fa fa-shopping-cart"></i>
+                                        <a href='<%# "restaurantDetails.aspx?ID="+Eval("restaurantID") %>'><i class="fa fa-search"></i></a>
                                     </div>
                                 </div>
-                                <div class="title_text">
-                                    <div class="feature_left"><a href="#"><span>Lasagne Pasta</span></a></div>
-                                    <div class="restaurant_feature_dots"></div>
-                                    <div class="feature_right">$16</div>
+                                 <div class="title_text">
+                                    <div class="feature_left"><a href="#"><span>
+                                    <asp:Label ID="LabelName" runat="server" Text='<%#Eval("restaurantName") %>'></asp:Label></span></a></div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 break coffee">
-                            <div class="feature_item">
-                                <div class="feature_item_inner">
-                                    <img src="img/menu-grid/Menu_Grid-2.jpg" alt="">
-                                    <div class="icon_hover">
-                                        <i class="fa fa-search"></i>
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </div>
-                                </div>
-                                <div class="title_text">
-                                    <div class="feature_left"><a href="#"><span>Barbecue Chicken</span></a></div>
-                                    <div class="restaurant_feature_dots"></div>
-                                    <div class="feature_right">$25</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 lunch snacks">
-                            <div class="feature_item">
-                                <div class="feature_item_inner">
-                                    <img src="img/menu-grid/Menu_Grid-3.jpg" alt="">
-                                    <div class="icon_hover">
-                                        <i class="fa fa-search"></i>
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </div>
-                                </div>
-                                <div class="title_text">
-                                    <div class="feature_left"><a href="#"><span>Hamburger</span></a></div>
-                                    <div class="restaurant_feature_dots"></div>
-                                    <div class="feature_right">$50</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 lunch dinner">
-                            <div class="feature_item">
-                                <div class="feature_item_inner">
-                                    <img src="img/menu-grid/Menu_Grid-4.jpg" alt="">
-                                    <div class="icon_hover">
-                                        <i class="fa fa-search"></i>
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </div>
-                                </div>
-                                <div class="title_text">
-                                    <div class="feature_left"><a href="#"><span>Meal</span></a></div>
-                                    <div class="restaurant_feature_dots"></div>
-                                    <div class="feature_right">$65</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 break snacks">
-                            <div class="feature_item">
-                                <div class="feature_item_inner">
-                                    <img src="img/menu-grid/Menu_Grid-5.jpg" alt="">
-                                    <div class="icon_hover">
-                                        <i class="fa fa-search"></i>
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </div>
-                                </div>
-                                <div class="title_text">
-                                    <div class="feature_left"><a href="#"><span>Soup Recipes</span></a></div>
-                                    <div class="restaurant_feature_dots"></div>
-                                    <div class="feature_right">$36</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 break coffee">
-                            <div class="feature_item">
-                                <div class="feature_item_inner">
-                                    <img src="img/menu-grid/Menu_Grid-6.jpg" alt="">
-                                    <div class="icon_hover">
-                                        <i class="fa fa-search"></i>
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </div>
-                                </div>
-                                <div class="title_text">
-                                    <div class="feature_left"><a href="#"><span>Sea Food</span></a></div>
-                                    <div class="restaurant_feature_dots"></div>
-                                    <div class="feature_right">$75</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 lunch snacks">
-                            <div class="feature_item">
-                                <div class="feature_item_inner">
-                                    <img src="img/menu-grid/Menu_Grid-7.jpg" alt="">
-                                    <div class="icon_hover">
-                                        <i class="fa fa-search"></i>
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </div>
-                                </div>
-                                <div class="title_text">
-                                    <div class="feature_left"><a href="#"><span>Green Tea</span></a></div>
-                                    <div class="restaurant_feature_dots"></div>
-                                    <div class="feature_right">$15</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 lunch dinner">
-                            <div class="feature_item">
-                                <div class="feature_item_inner">
-                                    <img src="img/menu-grid/Menu_Grid-8.jpg" alt="">
-                                    <div class="icon_hover">
-                                        <i class="fa fa-search"></i>
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </div>
-                                </div>
-                                <div class="title_text">
-                                    <div class="feature_left"><a href="#"><span>Breakfast Rool</span></a></div>
-                                    <div class="restaurant_feature_dots"></div>
-                                    <div class="feature_right">$17</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 lunch dinner">
-                            <div class="feature_item">
-                                <div class="feature_item_inner">
-                                    <img src="img/menu-grid/Menu_Grid-9.jpg" alt="">
-                                    <div class="icon_hover">
-                                        <i class="fa fa-search"></i>
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </div>
-                                </div>
-                                <div class="title_text">
-                                    <div class="feature_left"><a href="#"><span>Hamburger</span></a></div>
-                                    <div class="restaurant_feature_dots"></div>
-                                    <div class="feature_right">$25</div>
-                                </div>
-                            </div>
+                             </div>
+                          </div>
+                          </ItemTemplate>
+                        </asp:Repeater>
                         </div>
                     </div>
                 </div>
+            </div>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectStuffConnectionString %>" SelectCommand="SELECT * FROM [restaurantProfile]"></asp:SqlDataSource>
             </div>
             </div>
         </section>

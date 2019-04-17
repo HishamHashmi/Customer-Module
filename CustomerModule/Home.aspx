@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectStuffConnectionString %>" SelectCommand="SELECT * FROM [restaurantProfile]"></asp:SqlDataSource>
      <!--================Slider Area =================-->
         <section class="slider_area">
             <div class=slider_inner>
@@ -262,25 +263,22 @@
                     <p>Look for your favourite dine-in place</p>
                 </div>
                 <div class="row">
-                    <div class="col-sm-3">
+                        <div class="col-sm-4">
                         <div class="input-append input">
-                            <input size="16" type="text" placeholder="Location" >
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="input-append input">
-                            <input size="16" type="text" placeholder="Restaurant">
+                            <asp:TextBox ID="restName" runat="server" Placeholder="Restaurant" ></asp:TextBox>
                             <span class="add-on"><i class="icon-th"></i></span>
+                            <ajaxToolkit:AutoCompleteExtender ID="AutoCompleteRestaurant" runat="server" TargetControlID="restName" UseContextKey="true" CompletionInterval="500" MinimumPrefixLength="1" ServiceMethod="restaurantData"></ajaxToolkit:AutoCompleteExtender>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                             <div class="input-append input">
-                                <input size="16" type="text" placeholder="Cuisine">
+                                <asp:ScriptManager ID="ScriptManagerRestaurant" runat="server"></asp:ScriptManager>
+                                <asp:TextBox ID="cuisineName" runat="server" Placeholder="Cuisine"></asp:TextBox>
                                 <span class="add-on"><i class="icon-th"></i></span>
-                            </div>
+                             </div>
                     </div>
-                    <div class="col-sm-3">
-                        <a href="restaurantSearch.html" class="btn btn-default submit_btn">Find Restaurant</a>
+                    <div class="col-sm-4">
+                        <a href="restaurantSearch.aspx" class="btn btn-default submit_btn">Find Restaurant</a>
                     </div>
                 </div>
             </div>
@@ -327,39 +325,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="feature_item">
-                            <div class="feature_item_inner">
-                                <img src="img/feature/feature-3.jpg" alt="">
-                                <div class="icon_hover">
-                                    <i class="fa fa-search"></i>
-                                    <i class="fa fa-shopping-cart"></i>
-                                </div>
-                            </div>
-                            <div class="title_text">
-                                <div class="feature_left"><a href="table"><span>Hamburger</span></a></div>
-                                <div class="restaurant_feature_dots"></div>
-                                <div class="feature_right">$25</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="feature_item">
-                            <div class="feature_item_inner">
-                                <img src="img/feature/feature-1.jpg" alt="">
-                                <div class="icon_hover">
-                                    <i class="fa fa-search"></i>
-                                    <i class="fa fa-shopping-cart"></i>
-                                </div>
-                            </div>
-                            <div class="title_text">
-                                <div class="feature_left"><a href="table"><span>Grilled Chicken.</span></a></div>
-                                <div class="restaurant_feature_dots"></div>
-                                <div class="feature_right">$32</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                 </div>
             </div>
         </section>
         <!--================End Our feature Area =================-->

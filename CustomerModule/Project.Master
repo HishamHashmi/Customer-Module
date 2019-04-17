@@ -120,16 +120,17 @@
                                 </div>
                                 <ul>
                                     <li class="submitbox">
-                                        <input  type="text" placeholder="Name" />
+                                        <asp:TextBox ID="TextBoxName" runat="server" Text="Name"></asp:TextBox>
                                     </li>
                                     <li class="submitbox">
-                                        <input  type="text" placeholder="Email" />
+                                        <asp:TextBox ID="TextBoxEmail" runat="server" Text="Email"></asp:TextBox>
                                     </li>
                                     <li class="submitbox">
-                                        <input  type="text" placeholder="Feedback"/>
+                                        <asp:TextBox ID="TextBoxFeedback" runat="server" Text="Feedback"></asp:TextBox>
                                     </li>
-                                    <li class="submitbox" style="margin-top:20px; ">
-                                        <div class="btn btn-default submit_btn" style="width:100px;"> <a href="#">Submit</a> </div>
+                                    <li  class="btn btn-default submit_btn" style="margin-top:20px; width:100px; height:50px;">
+                                        <div><asp:Button ID="ButtonFeedbck" runat="server" Text="Submit" OnClick="ButtonFeedbck_Click" OnClientClick="Your feedback is submitted" CssClass="submit_btn" /> </div>
+                                        
                                     </li>
                                 </ul>
                             </aside>

@@ -2,32 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-       <header class="main_menu_area">
-            <nav class="navbar navbar-default">
-                <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="home.html"><img src="images/DK.png" style="width:172px;height:52px;" alt=""></a>
-                    </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                           <li><a href="#">Login</a></li>
-                           <li><a href="#">Sign Up</a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>
-        </header>
-        <!--================End Footer Area =================-->
           <section class="banner_area">
             <div class="container">
                 <div class="banner_content">
@@ -66,8 +40,7 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <div class="contact_details">
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majori have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a pas of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p style="text-align: center; font-size:18px;"><asp:Label ID="LabelBio" runat="server" Text='<%# Eval("restaurantDescription") %>' CssClass="contact_details"></asp:Label></p>
                         <div class="col-md-4 col-sm-4">
                             <div class="media">
                                     <div class="media-left">
@@ -75,7 +48,7 @@
                                     </div>
                                     <div class="media-body">
                                         <h4>Opening Time</h4>
-                                        <h5>backpiper.com@gmail.com</h5>
+                                        <h5><asp:Label ID="openTime" runat="server" Text='<%# Eval("restaurantOpeningTime") %>'></asp:Label></h5>
                                     </div>
                             </div>
                         </div>
@@ -86,7 +59,7 @@
                                     </div>
                                     <div class="media-body">
                                         <h4>Closing Time</h4>
-                                        <h5>backpiper.com@gmail.com</h5>
+                                        <h5><asp:Label ID="closeTime" runat="server" Text='<%# Eval("restaurantClosingTime") %>'></asp:Label></h5>
                                     </div>
                             </div>
                         </div>
@@ -97,7 +70,7 @@
                                 </div>
                                 <div class="media-body">
                                     <h4>Address</h4>
-                                    <h5>Freedom Way, Jersey Ctity, NJ 07305, USA</h5>
+                                    <h5><asp:Label ID="address" runat="server" Text='<%# Eval("restaurantAddress") %>'></asp:Label></h5>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +81,7 @@
                                 </div>
                                 <div class="media-body">
                                     <h4>Phone</h4>
-                                    <h5>+88 01911 854 378</h5>
+                                    <h5><asp:Label ID="contactNo" runat="server" Text='<%# Eval("restaurantContactNo") %>'></asp:Label></h5>
                                 </div>
                             </div>
                         </div>
@@ -119,7 +92,7 @@
                                 </div>
                                 <div class="media-body">
                                     <h4>Email</h4>
-                                    <h5>backpiper.com@gmail.com</h5>
+                                    <h5><asp:Label ID="restEmail" runat="server" Text='<%# Eval("restaurantEmail") %>'></asp:Label></h5>
                                 </div>
                             </div>
                         </div>
@@ -139,36 +112,36 @@
                     <div class="col-md-12 col-sm-12">
                     <div class="col-sm-4">
                         <div class="input-append input">
-                            <input size="16" type="text" placeholder="Name" >
+                            <asp:TextBox ID="TextBoxName" runat="server" Placeholder="Name"></asp:TextBox>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="input-append input">
-                            <input size="16" type="text" placeholder="Dining Date">
+                            <asp:TextBox ID="TextBox1" runat="server"  Placeholder="Dining Date"></asp:TextBox>
                             <span class="add-on"><i class="icon-th"></i></span>
                         </div>
                     </div>
                     <div class="col-sm-4">
                             <div class="input-append input">
-                                <input size="16" type="text" placeholder="Checkin Time">
+                                <asp:TextBox ID="TextBox2" runat="server"  Placeholder="Checkin Time"></asp:TextBox>
                                 <span class="add-on"><i class="icon-th"></i></span>
                             </div>
                     </div>
                     <div class="col-sm-4">
                             <div class="input-append input">
-                                <input size="16" type="text" placeholder="Checkout Time">
+                                <asp:TextBox ID="TextBox3" runat="server"  Placeholder="CheckoutTime"></asp:TextBox>
                                 <span class="add-on"><i class="icon-th"></i></span>
                             </div>
                     </div>
                     <div class="col-sm-4">
                             <div class="input-append input">
-                                <input size="16" type="text" placeholder="No. of Persons">
+                                <asp:TextBox ID="TextBox4" runat="server" Placeholder="No. of Persons"></asp:TextBox>
                                 <span class="add-on"><i class="icon-th"></i></span>
                             </div>
                     </div>
                     <div class="col-sm-4">
                             <div class="input-append input">
-                                <input size="16" type="text" placeholder="Discount ID">
+                                <asp:TextBox ID="TextBox5" runat="server"  Placeholder="DiscountID"></asp:TextBox>
                                 <span class="add-on"><i class="icon-th"></i></span>
                             </div>
                     </div>
@@ -601,5 +574,6 @@
                             </div>
                         </div>
                     </section>
-        
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectStuffConnectionString %>" SelectCommand="SELECT * FROM [restaurantProfile]"></asp:SqlDataSource>
 </asp:Content>
+
