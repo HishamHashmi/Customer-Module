@@ -17,6 +17,7 @@ namespace CustomerModule
             if (!IsPostBack)
             {
                 BindData();
+                BindDataMenu();
             }
         }
         private void BindData()
@@ -31,6 +32,7 @@ namespace CustomerModule
 
             while (sdr.Read())
             {
+                restName.Text = (sdr["restaurantName"].ToString());
                 LabelBio.Text = (sdr["restaurantDescription"].ToString());
                 openTime.Text = (sdr["restaurantOpeningTime"].ToString());
                 closeTime.Text = (sdr["restaurantClosingTime"].ToString());
@@ -40,6 +42,21 @@ namespace CustomerModule
 
             }
             con.Close();
+        }
+        private void BindDataMenu()
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "SELECT * from menuItems where restaurantID=" + Request.QueryString["ID"];
+            cmd.CommandType = CommandType.Text;
+            DataSet objDS = new DataSet();
+            SqlDataAdapter objDA = new SqlDataAdapter();
+            objDA.SelectCommand = cmd;
+            con.Open();
+            objDA.Fill(objDS);
+            con.Close();
+            RepeaterMenu.DataSource = objDS;
+            RepeaterMenu.DataBind();
         }
     }
 }

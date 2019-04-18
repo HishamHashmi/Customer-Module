@@ -52,7 +52,9 @@ namespace CustomerModule
             return Name;
         }
 
-       public static List<string> cuisineData(string prefixText)
+        [System.Web.Services.WebMethod(), System.Web.Script.Services.ScriptMethod()]
+
+        public static List<string> cuisineData(string prefixText)
         {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ProjectStuffConnectionString"].ConnectionString);
         SqlCommand cmd = new SqlCommand("SELECT itemName from menuItems where itemName Like @itemName+ '%'", con);

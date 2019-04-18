@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="banner_content">
                     <div class="s_white_title">
-                        <h3 style="font-size: 60px;">Restaurant</h3>
+                        <h3 style="font-size: 60px;"><asp:Label ID="restName" runat="server" Text='<%# Eval("restaurantName") %>' class="s_white_title"></asp:Label></h3>
                     </div>
                 </div>
             </div>
@@ -145,8 +145,8 @@
                                 <span class="add-on"><i class="icon-th"></i></span>
                             </div>
                     </div>
-                    <div class="col-sm-3">
-                        <a href="restauantSearch.html" class="btn btn-default submit_btn" style="float:right; margin-top: 10px">Find Restaurant</a>
+                    <div class="col-sm-3" style="margin-top:10px;">
+                        <a href="#" class="btn btn-default submit_btn">Book Table</a>
                     </div>
                 </div>
                 </div>
@@ -242,290 +242,26 @@
                 </div>
                 <div class="p_recype_item_main">
                     <div class="row p_recype_item_active">
-                        <div class="col-md-6 break snacks">
-                            <div class="media">
+                    <asp:Repeater ID="RepeaterMenu" runat="server">
+                    <ItemTemplate>
+                   <div class="col-md-6 break snacks">
+                            <div class="media" style="width:500px">
                                 <div class="media-left">
-                                    <img src="img/recype/recype-1.jpg" alt="">
+                                    <img src='<%# Eval("itemImage").ToString().Replace("~","") %>' style="width:100px; height:120px;" />
                                 </div>
                                 <div class="media-body">
-                                    <a href="#"><h3>Vegetable Flavour</h3></a>
-                                    <h4>$32</h4>
-                                    <p>Lorem ipsum dolor sit amets, consectetur adipiscing </p>
+                                    <a href="#"><h3><asp:Label ID="ItemName" runat="server" Text='<%# Eval("itemName") %>'></asp:Label></h3></a>
+                                    <h4><asp:Label ID="ItemPrice" runat="server" Text='<%# Eval("itemPrice") %>'></asp:Label></h4>
+                                    <p><asp:Label ID="ItemDes" runat="server" Text='<%# Eval("itemDescription") %>'></asp:Label> </p>
                                     <a class="read_mor_btn" href="#">Add To Cart</a>
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                </div>
+                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 break coffee">
-                            <div class="media">
-                                <div class="media-left">
-                                    <img src="img/recype/recype-2.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <a href="#"><h3>Vegetable Flavour</h3></a>
-                                    <h4>$32</h4>
-                                    <p>Lorem ipsum dolor sit amets, consectetur adipiscing </p>
-                                    <a class="read_mor_btn" href="#">Add To Cart</a>
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 lunch snacks">
-                            <div class="media">
-                                <div class="media-left">
-                                    <img src="img/recype/recype-3.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <a href="#"><h3>Vegetable Flavour</h3></a>
-                                    <h4>$32</h4>
-                                    <p>Lorem ipsum dolor sit amets, consectetur adipiscing </p>
-                                    <a class="read_mor_btn" href="#">Add To Cart</a>
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 lunch dinner">
-                            <div class="media">
-                                <div class="media-left">
-                                    <img src="img/recype/recype-4.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <a href="#"><h3>Vegetable Flavour</h3></a>
-                                    <h4>$32</h4>
-                                    <p>Lorem ipsum dolor sit amets, consectetur adipiscing </p>
-                                    <a class="read_mor_btn" href="#">Add To Cart</a>
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 break coffee">
-                            <div class="media">
-                                <div class="media-left">
-                                    <img src="img/recype/recype-5.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <a href="#"><h3>Vegetable Flavour</h3></a>
-                                    <h4>$32</h4>
-                                    <p>Lorem ipsum dolor sit amets, consectetur adipiscing </p>
-                                    <a class="read_mor_btn" href="#">Add To Cart</a>
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 break coffee">
-                            <div class="media">
-                                <div class="media-left">
-                                    <img src="img/recype/recype-6.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <a href="#"><h3>Vegetable Flavour</h3></a>
-                                    <h4>$32</h4>
-                                    <p>Lorem ipsum dolor sit amets, consectetur adipiscing </p>
-                                    <a class="read_mor_btn" href="#">Add To Cart</a>
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 lunch coffee">
-                            <div class="media">
-                                <div class="media-left">
-                                    <img src="img/recype/recype-7.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <a href="#"><h3>Vegetable Flavour</h3></a>
-                                    <h4>$32</h4>
-                                    <p>Lorem ipsum dolor sit amets, consectetur adipiscing </p>
-                                    <a class="read_mor_btn" href="#">Add To Cart</a>
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 dinner snacks">
-                            <div class="media">
-                                <div class="media-left">
-                                    <img src="img/recype/recype-8.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <a href="#"><h3>Vegetable Flavour</h3></a>
-                                    <h4>$32</h4>
-                                    <p>Lorem ipsum dolor sit amets, consectetur adipiscing </p>
-                                    <a class="read_mor_btn" href="#">Add To Cart</a>
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 lunch coffee">
-                            <div class="media">
-                                <div class="media-left">
-                                    <img src="img/recype/recype-7.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <a href="#"><h3>Vegetable Flavour</h3></a>
-                                    <h4>$32</h4>
-                                    <p>Lorem ipsum dolor sit amets, consectetur adipiscing </p>
-                                    <a class="read_mor_btn" href="#">Add To Cart</a>
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 dinner snacks">
-                            <div class="media">
-                                <div class="media-left">
-                                    <img src="img/recype/recype-8.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <a href="#"><h3>Vegetable Flavour</h3></a>
-                                    <h4>$32</h4>
-                                    <p>Lorem ipsum dolor sit amets, consectetur adipiscing </p>
-                                    <a class="read_mor_btn" href="#">Add To Cart</a>
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 dinner coffee">
-                            <div class="media">
-                                <div class="media-left">
-                                    <img src="img/recype/recype-9.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <a href="#"><h3>Vegetable Flavour</h3></a>
-                                    <h4>$32</h4>
-                                    <p>Lorem ipsum dolor sit amets, consectetur adipiscing </p>
-                                    <a class="read_mor_btn" href="#">Add To Cart</a>
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 dinner coffee">
-                            <div class="media">
-                                <div class="media-left">
-                                    <img src="img/recype/recype-10.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <a href="#"><h3>Vegetable Flavour</h3></a>
-                                    <h4>$32</h4>
-                                    <p>Lorem ipsum dolor sit amets, consectetur adipiscing </p>
-                                    <a class="read_mor_btn" href="#">Add To Cart</a>
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 dinner coffee">
-                            <div class="media">
-                                <div class="media-left">
-                                    <img src="img/recype/recype-9.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <a href="#"><h3>Vegetable Flavour</h3></a>
-                                    <h4>$32</h4>
-                                    <p>Lorem ipsum dolor sit amets, consectetur adipiscing </p>
-                                    <a class="read_mor_btn" href="#">Add To Cart</a>
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 dinner coffee">
-                            <div class="media">
-                                <div class="media-left">
-                                    <img src="img/recype/recype-10.jpg" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <a href="#"><h3>Vegetable Flavour</h3></a>
-                                    <h4>$32</h4>
-                                    <p>Lorem ipsum dolor sit amets, consectetur adipiscing </p>
-                                    <a class="read_mor_btn" href="#">Add To Cart</a>
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-half-o"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </div>
-            </div>
-        </section>
+              </div>
+         </section>
         <!--================End Our feature Area =================-->
             <section class="banner_area" style="background-image: url(img/banner/Food-banner-2.jpg)">
                 <div class="container" id="contact">
@@ -544,23 +280,22 @@
                                     <div class="row contact_form_area">
                                         <form action="contact_process.php" method="post" id="contactForm">
                                             <div class="form-group col-md-12">
-                                              <input type="text" class="form-control" id="name" name="name" placeholder="First Name*">
+                                                <asp:TextBox ID="TBoxFName" runat="server" class="form-control" Placeholder="First Name"></asp:TextBox>
                                             </div>
                                             <div class="form-group col-md-12">
-                                              <input type="text" class="form-control" id="last" name="last" placeholder="Last Name*">
+                                                <asp:TextBox ID="TBoxLName" runat="server" class="form-control" Placeholder="Last Name"></asp:TextBox>
                                             </div>
-                                           
                                             <div class="form-group col-md-12">
-                                              <input type="email" class="form-control" id="email" name="email" placeholder="Your Email*">
+                                                <asp:TextBox ID="TBoxEmail" runat="server" class="form-control" Placeholder="Email"></asp:TextBox>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <asp:TextBox ID="TBoxSub" runat="server" class="form-control" Placeholder="Subject"></asp:TextBox>
                                             </div>
                                              <div class="form-group col-md-12">
-                                              <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                              <textarea class="form-control" id="message" name="message" placeholder="Write Message"></textarea>
+                                                <asp:TextBox ID="TBoxMsg" runat="server" class="form-control" Placeholder="Message" TextMode="MultiLine"></asp:TextBox>
                                             </div>
                                             <div class="form-group col-md-12" style="padding: 20px;">
-                                                <button class="btn btn-default submit_btn" type="submit">Send Message</button>
+                                                <asp:Button ID="ButtonSubmit" class="btn btn-default submit_btn" runat="server" Text="Submit" />
                                              </div>
                                         </form>
                                         <div id="success">

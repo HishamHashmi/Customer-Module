@@ -274,11 +274,12 @@
                             <div class="input-append input">
                                 <asp:ScriptManager ID="ScriptManagerRestaurant" runat="server"></asp:ScriptManager>
                                 <asp:TextBox ID="cuisineName" runat="server" Placeholder="Cuisine"></asp:TextBox>
+                                <ajaxToolkit:AutoCompleteExtender ID="AutoCompleteCuisine" runat="server"  TargetControlID="cuisineName" UseContextKey="true" CompletionInterval="500" MinimumPrefixLength="1" ServiceMethod="cuisineData"></ajaxToolkit:AutoCompleteExtender>
                                 <span class="add-on"><i class="icon-th"></i></span>
                              </div>
                     </div>
                     <div class="col-sm-4">
-                        <a href="restaurantSearch.aspx" class="btn btn-default submit_btn">Find Restaurant</a>
+                        <a href="#" onclick="MoveToSearch();"  class="btn btn-default submit_btn">Find Restaurant</a>
                     </div>
                 </div>
             </div>
@@ -325,9 +326,40 @@
                             </div>
                         </div>
                     </div>
+                     <div class="item">
+                    <div class="feature_item">
+                            <div class="feature_item_inner">
+                                <img src="img/feature/feature-3.jpg" alt="">
+                                <div class="icon_hover">
+                                    <i class="fa fa-search"></i>
+                                    <i class="fa fa-shopping-cart"></i>
+                                </div>
+                            </div>
+                            <div class="title_text">
+                                <div class="feature_left"><a href="table"><span>Hamburger</span></a></div>
+                                <div class="restaurant_feature_dots"></div>
+                                <div class="feature_right">$25</div>
+                            </div>
+                      </div>
+                    </div>
                  </div>
             </div>
         </section>
         <!--================End Our feature Area =================-->
+    <script type="text/javascript">
+
+        function MoveToSearch() {
+            debugger;
+            var rName = document.getElementById('<%= restName.ClientID%>').value;
+
+            var cNAme = document.getElementById('<%= cuisineName.ClientID%>').value;
+
+            var mLocation = "restaurantSearch.aspx?rName=" + rName + "&cName=" + cNAme;
+
+            location.href = mLocation;
+            
+        }
+
+    </script>
 
 </asp:Content>
