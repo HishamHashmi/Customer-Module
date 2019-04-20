@@ -18,6 +18,7 @@ namespace CustomerModule
             {
                 BindData();
                 BindDataMenu();
+                BindDataDeal();
             }
         }
         private void BindData()
@@ -57,6 +58,21 @@ namespace CustomerModule
             con.Close();
             RepeaterMenu.DataSource = objDS;
             RepeaterMenu.DataBind();
+        }
+        private void BindDataDeal()
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "SELECT dealName,dealImage from promotionalDeals where restaurantID=" + Request.QueryString["ID"];
+            cmd.CommandType = CommandType.Text;
+            DataSet objDS = new DataSet();
+            SqlDataAdapter objDA = new SqlDataAdapter();
+            objDA.SelectCommand = cmd;
+            con.Open();
+            objDA.Fill(objDS);
+            con.Close();
+            RepeaterDeal.DataSource = objDS;
+            RepeaterDeal.DataBind();
         }
     }
 }

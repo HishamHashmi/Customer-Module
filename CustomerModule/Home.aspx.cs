@@ -24,7 +24,7 @@ namespace CustomerModule
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT dealName, dealImage from promotionalDeals";
+            cmd.CommandText = "SELECT itemName, itemImage from menuItems";
             cmd.CommandType = CommandType.Text;
             DataSet objDS = new DataSet();
             SqlDataAdapter objDA = new SqlDataAdapter();
@@ -32,7 +32,9 @@ namespace CustomerModule
             con.Open();
             objDA.Fill(objDS);
             con.Close();
-            }
+            RepeaterHomeSlider.DataSource = objDS;
+            RepeaterHomeSlider.DataBind();
+        }
         [System.Web.Services.WebMethod(), System.Web.Script.Services.ScriptMethod()]
         public static List<string> restaurantData(string prefixText)
         {
@@ -56,20 +58,20 @@ namespace CustomerModule
 
         public static List<string> cuisineData(string prefixText)
         {
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ProjectStuffConnectionString"].ConnectionString);
-        SqlCommand cmd = new SqlCommand("SELECT itemName from menuItems where itemName Like @itemName+ '%'", con);
-        cmd.Parameters.AddWithValue("@itemName", prefixText);
-        SqlDataAdapter sda = new SqlDataAdapter(cmd);
-        DataTable dt = new DataTable();
-        con.Open();
-        sda.Fill(dt);
-        List<string> Name = new List<string>();
-        for (int i = 0; i < dt.Rows.Count; i++)
-        {
-            Name.Add(dt.Rows[i][0].ToString());
-        }
-        con.Close();
-        return Name;
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ProjectStuffConnectionString"].ConnectionString);
+            SqlCommand cmd = new SqlCommand("SELECT itemName from menuItems where itemName Like @itemName+ '%'", con);
+            cmd.Parameters.AddWithValue("@itemName", prefixText);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            con.Open();
+            sda.Fill(dt);
+            List<string> Name = new List<string>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Name.Add(dt.Rows[i][0].ToString());
+            }
+            con.Close();
+            return Name;
         }
     }
 }

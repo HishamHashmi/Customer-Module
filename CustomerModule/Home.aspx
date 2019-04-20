@@ -294,72 +294,46 @@
                     <h2>Favourite Food</h2>
                 </div>
                 <div class="feature_slider">
-                    <div class="item">
+                        <asp:Repeater ID="RepeaterHomeSlider" runat="server">
+                        <ItemTemplate>
+                        <div class="item">
                         <div class="feature_item">
                             <div class="feature_item_inner">
-                                <img src="img/feature/feature-1.jpg" alt="">
+                               <img src='<%# Eval("itemImage").ToString().Replace("~","") %>' style="width:350px; height:300px;" />
                                 <div class="icon_hover">
                                     <i class="fa fa-search"></i>
                                     <i class="fa fa-shopping-cart"></i>
                                 </div>
                             </div>
                             <div class="title_text">
-                                <div class="feature_left"><a href="table.html"><span>Grilled Chicken</span></a></div>
-                                <div class="restaurant_feature_dots"></div>
-                                <div class="feature_right">$32</div>
+                                <div class="feature_left"><a href="#"><span><asp:Label ID="LabelName" runat="server" Text='<%# Eval("itemName") %>'></asp:Label></span></a></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="feature_item">
-                            <div class="feature_item_inner">
-                                <img src="img/feature/feature-2.jpg" alt="">
-                                <div class="icon_hover">
-                                    <i class="fa fa-search"></i>
-                                    <i class="fa fa-shopping-cart"></i>
-                                </div>
-                            </div>
-                            <div class="title_text">
-                                <div class="feature_left"><a href="table"><span>Lasagne Pasta</span></a></div>
-                                <div class="restaurant_feature_dots"></div>
-                                <div class="feature_right">$16</div>
-                            </div>
                         </div>
-                    </div>
-                     <div class="item">
-                    <div class="feature_item">
-                            <div class="feature_item_inner">
-                                <img src="img/feature/feature-3.jpg" alt="">
-                                <div class="icon_hover">
-                                    <i class="fa fa-search"></i>
-                                    <i class="fa fa-shopping-cart"></i>
-                                </div>
-                            </div>
-                            <div class="title_text">
-                                <div class="feature_left"><a href="table"><span>Hamburger</span></a></div>
-                                <div class="restaurant_feature_dots"></div>
-                                <div class="feature_right">$25</div>
-                            </div>
-                      </div>
+                        </ItemTemplate>
+                        </asp:Repeater>
                     </div>
                  </div>
-            </div>
-        </section>
+             </section>
         <!--================End Our feature Area =================-->
     <script type="text/javascript">
 
         function MoveToSearch() {
-            debugger;
             var rName = document.getElementById('<%= restName.ClientID%>').value;
 
-            var cNAme = document.getElementById('<%= cuisineName.ClientID%>').value;
-
-            var mLocation = "restaurantSearch.aspx?rName=" + rName + "&cName=" + cNAme;
-
-            location.href = mLocation;
+            var cName = document.getElementById('<%= cuisineName.ClientID%>').value;
+            console.log("cname: " + cName + " rname: " + rName);
+            var mLocation;
+            if (cName && !rName) {
+                mLocation = "restaurantSearch.aspx?cName=" + cName;
+            } else if (rName && !cName) {
+                mLocation = "restaurantSearch.aspx?rName=" + rName;
+            } else if (rName && cName) {
+                 mLocation = "restaurantSearch.aspx?rName=" + rName + "&cName=" + cName;
+            }     
+           location.href = mLocation;
             
         }
 
     </script>
-
 </asp:Content>
