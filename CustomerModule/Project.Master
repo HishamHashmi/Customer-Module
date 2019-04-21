@@ -68,11 +68,12 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                           <li><a href="#">Login</a></li>
-                           <li><a href="#">Sign Up</a></li>
+                            <li><a href="#" id="myBtn">Login</a></li>
+                            <li><a href="#" id="myBtn1">Sign Up</a></li>
                             <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
+
                 </div><!-- /.container-fluid -->
             </nav>
         </header>
