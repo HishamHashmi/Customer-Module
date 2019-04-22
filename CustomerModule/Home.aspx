@@ -267,19 +267,19 @@
                         <div class="input-append input">
                             <asp:TextBox ID="restName" runat="server" Placeholder="Restaurant" ></asp:TextBox>
                             <span class="add-on"><i class="icon-th"></i></span>
-                            <ajaxToolkit:AutoCompleteExtender ID="AutoCompleteRestaurant" runat="server" TargetControlID="restName" UseContextKey="true" CompletionInterval="500" MinimumPrefixLength="1" ServiceMethod="restaurantData"></ajaxToolkit:AutoCompleteExtender>
+                            <ajaxToolkit:AutoCompleteExtender ID="AutoCompleteRestaurant" runat="server" TargetControlID="restName" UseContextKey="true" CompletionInterval="500" MinimumPrefixLength="1" ServiceMethod="restaurantData"  CompletionListCssClass="completionList" CompletionListHighlightedItemCssClass="itemHighlighted" CompletionListItemCssClass="listItem"></ajaxToolkit:AutoCompleteExtender>
                         </div>
                     </div>
                     <div class="col-sm-4">
                             <div class="input-append input">
                                 <asp:ScriptManager ID="ScriptManagerRestaurant" runat="server"></asp:ScriptManager>
                                 <asp:TextBox ID="cuisineName" runat="server" Placeholder="Cuisine"></asp:TextBox>
-                                <ajaxToolkit:AutoCompleteExtender ID="AutoCompleteCuisine" runat="server"  TargetControlID="cuisineName" UseContextKey="true" CompletionInterval="500" MinimumPrefixLength="1" ServiceMethod="cuisineData"></ajaxToolkit:AutoCompleteExtender>
+                                <ajaxToolkit:AutoCompleteExtender ID="AutoCompleteCuisine" runat="server"  TargetControlID="cuisineName" UseContextKey="true" CompletionInterval="500" MinimumPrefixLength="1" ServiceMethod="cuisineData" CompletionListCssClass="completionList" CompletionListHighlightedItemCssClass="itemHighlighted" CompletionListItemCssClass="listItem" ></ajaxToolkit:AutoCompleteExtender>
                                 <span class="add-on"><i class="icon-th"></i></span>
                              </div>
                     </div>
-                    <div class="col-sm-4">
-                        <a href="#" onclick="MoveToSearch();"  class="btn btn-default submit_btn">Find Restaurant</a>
+                    <div class="col-sm-3">
+                        <a href="#" onclick="MoveToSearch();"  class="submit_btn" style="height:40px; padding-top:5px;">Find Restaurant</a>
                     </div>
                 </div>
             </div>

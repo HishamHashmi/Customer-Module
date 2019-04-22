@@ -16,7 +16,7 @@
         <link href="vendors/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link href="vendors/linears-icon/style.css" rel="stylesheet">
-        <!-- Bootstrap -->
+         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
             <!-- Rev slider css -->
         <link href="vendors/revolution/css/settings.css" rel="stylesheet">
@@ -31,6 +31,10 @@
         
         <link href="css/style.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,7 +42,8 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-    <asp:ContentPlaceHolder ID="head" runat="server">
+        
+     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -57,23 +62,91 @@
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="Home.aspx"><img src="images/DK.png" style="width:172px;height:52px;" alt=""></a>
+                        <a class="navbar-brand" href="Home.aspx">
+                            <img src="images/DK.png" style="width: 172px; height: 52px;" alt=""></a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#" id="myBtn">Login</a></li>
-                            <li><a href="#" id="myBtn1">Sign Up</a></li>
+                            <asp:PlaceHolder ID="NotLoggedIn" runat="server">
+                            <li><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#myModalSignUp">Sign Up</a></li>
                             <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                            </asp:PlaceHolder>
+                            <asp:PlaceHolder ID="LoggedIn" runat="server">
+                                <li> <a href="#" class="dropdown-toggle" ><asp:Label ID="CustomerName" runat="server" CssClass="s_white_title" Text='<%# Eval("customerAccountUsername") %>'></asp:Label></a><span><li><a href="LogOut.aspx">Sign out</a></li></span></li>
+                                 <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                            </asp:PlaceHolder>
                         </ul>
-                    </div><!-- /.navbar-collapse -->
-
+                    </div>
+                      <!-- /.navbar-collapse -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h2 class="modal-title">Login</h2>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="usrname" style="font-size: 15px;"><span class="glyphicon glyphicon-user"></span>Username</label>
+                                        <asp:TextBox ID="TextName" class="form-control" Height="40px" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="psw" style="font-size: 15px;"><span class="glyphicon glyphicon-lock"></span>Password</label>
+                                        <asp:TextBox ID="TextPass" class="form-control" Height="40px" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="checkbox">
+                                        <asp:CheckBox ID="CheckRember" class="form-control" Width="150px" runat="server" Text="Remember Me" />
+                                    </div>
+                                    <asp:Button ID="ButtonSignIn" runat="server" Text="Sign In" Style="height: 50px; background-color: black; color: white;" class="btn btn-default btn-block" OnClick="ButtonSignIn_Click" />
+                                </div>
+                                <div class="modal-footer">
+                                    <!--<p>Not a member? <a href="#" data-toggle="modal" data-target="#myModalSignUp" aria-hidden="true">Sign Up</a></p>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 <div class="modal fade" id="myModalSignUp" role="dialog">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content" >
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h2 class="modal-title">Sign Up</h2>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="usrname" style="font-size: 15px;"><span class="glyphicon glyphicon-user"></span>Username</label>
+                                        <asp:TextBox ID="TextBoxUsername" class="form-control" Height="40px" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="psw" style="font-size: 15px;"><span class="glyphicon glyphicon-lock"></span>Password</label>
+                                        <asp:TextBox ID="TextBoxPassword" class="form-control" Height="40px" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pswRpt" style="font-size: 15px;"><span class="glyphicon glyphicon-lock"></span>Repeat Password</label>
+                                        <asp:TextBox ID="TextBoxRptPassword" class="form-control" Height="40px" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Email" style="font-size: 15px;"><span class="glyphicon glyphicon-lock"></span>Email</label>
+                                        <asp:TextBox ID="TextBoxUserEmail" class="form-control" Height="40px" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <asp:Button ID="ButtonSignUp" runat="server" Text="Sign Up" Style="height: 50px; background-color: black; color: white;" class="btn btn-default btn-block" OnClick="ButtonSignUp_Click" />
+                                    </div>
+                                    <div class="modal-footer">
+                                        <asp:Label ID="labelsignup" style="font-size:15px; text-align:center;" runat="server" Text="" CssClass="form-control"></asp:Label>
+                                    </div>
+                                </div>
+                              </div>
+                        </div>
+                     </div>
                 </div><!-- /.container-fluid -->
             </nav>
         </header>
@@ -90,9 +163,11 @@
                                 <div class="f_w_title">
                                     <h4>ABOUT DASTARKHWAN</h4>
                                 </div>
-                                <p style=" text-align: justify;">Are you hungry? Wanna have dinner at your favourite on busy days? Then DastarKhwan is the right place for you! DastarKhwan, offers you a long and detailed <b> list of
+                                <p style="text-align: justify;">
+                                    Are you hungry? Wanna have dinner at your favourite on busy days? Then DastarKhwan is the right place for you! DastarKhwan, offers you a long and detailed <b>list of
                                         restaurants near you</b>. If you are in a mood of Dine-In with your family, reserve your table at your favourite place and Dine-In on your desired time without having to find an empty table 
-                                        furthur, if you feel too lazy to drive to your favourite restaurant, you can just order food and get it delivered at your place.</p>
+                                        furthur, if you feel too lazy to drive to your favourite restaurant, you can just order food and get it delivered at your place.
+                                </p>
                                 <ul style="text-align: center;">
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -129,7 +204,7 @@
                                     <li class="submitbox">
                                         <asp:TextBox ID="TextBoxFeedback" runat="server" Text="Feedback"></asp:TextBox>
                                     </li>
-                                    <li  class="btn btn-default submit_btn" style="margin-top:20px; width:100px; height:50px;">
+                                    <li  class="btn submit_btn" style="margin-top:20px; width:100px; height:50px;">
                                         <div><asp:Button ID="ButtonFeedbck" runat="server" Text="Submit" OnClick="ButtonFeedbck_Click" OnClientClick="Your feedback is submitted" CssClass="submit_btn" /> </div>
                                         
                                     </li>

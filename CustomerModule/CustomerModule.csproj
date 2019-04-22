@@ -243,6 +243,7 @@
     <Content Include="js\min\video_player.min.js" />
     <Content Include="js\theme.js" />
     <Content Include="js\video_player.js" />
+    <Content Include="LogOut.aspx" />
     <Content Include="restaurantDetails.aspx" />
     <Content Include="restaurantSearch.aspx" />
     <Content Include="vendors\bootatrap-date-time\bootstrap-datetimepicker.min.css" />
@@ -360,6 +361,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogOut.aspx.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogOut.aspx.designer.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="Project.Master.cs">
       <DependentUpon>Project.Master</DependentUpon>
