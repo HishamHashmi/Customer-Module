@@ -24,7 +24,8 @@ namespace CustomerModule
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT * from restaurantProfile INNER JOIN menuItems ON restaurantProfile.restaurantID = menuItems.restaurantID where restaurantName= '" + Request.QueryString["rName"]+"' OR itemName='"+Request.QueryString["cName"]+"'";
+            cmd.CommandText = " SELECT rp.* from restaurantProfile AS rp JOIN (SELECT restaurantID from menuItems GROUP BY restaurantID) AS mi" +
+                " ON rp.restaurantID = mi.restaurantID  WHERE restaurantName= '" + Request.QueryString["rName"] +"'";   // OR '" + Request.QueryString["cName"] + "'
             cmd.CommandType = CommandType.Text;
             DataSet objDS = new DataSet();
             SqlDataAdapter objDA = new SqlDataAdapter();

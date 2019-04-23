@@ -47,7 +47,7 @@
                                         <i class="fa fa-clock-o"></i>
                                     </div>
                                     <div class="media-body">
-                                        <h4>Opening Time</h4>
+                                        <h5 style="font-family: Open Sans, sans-serif; font-size:14px; font-weight:900;">Opening Time</h5>
                                         <h5><asp:Label ID="openTime" runat="server" Text='<%# Eval("restaurantOpeningTime") %>'></asp:Label></h5>
                                     </div>
                             </div>
@@ -58,7 +58,7 @@
                                         <i class="fa fa-clock-o"></i>
                                     </div>
                                     <div class="media-body">
-                                        <h4>Closing Time</h4>
+                                        <h5 style="font-family: Open Sans, sans-serif; font-size:14px; font-weight:900;">Closing Time</h5>
                                         <h5><asp:Label ID="closeTime" runat="server" Text='<%# Eval("restaurantClosingTime") %>'></asp:Label></h5>
                                     </div>
                             </div>
@@ -69,7 +69,7 @@
                                     <i class="fa fa-map-marker"></i>
                                 </div>
                                 <div class="media-body">
-                                    <h4>Address</h4>
+                                    <h5 style="font-family: Open Sans, sans-serif; font-size:14px; font-weight:900;">Address</h5>
                                     <h5><asp:Label ID="address" runat="server" Text='<%# Eval("restaurantAddress") %>'></asp:Label></h5>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
                                     <i class="fa fa-phone"></i>
                                 </div>
                                 <div class="media-body">
-                                    <h4>Phone</h4>
+                                    <h5 style="font-family: Open Sans, sans-serif; font-size:14px; font-weight:900;">Phone</h5>
                                     <h5><asp:Label ID="contactNo" runat="server" Text='<%# Eval("restaurantContactNo") %>'></asp:Label></h5>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
                                     <i class="fa fa-envelope-o"></i>
                                 </div>
                                 <div class="media-body">
-                                    <h4>Email</h4>
+                                    <h5 style="font-family: Open Sans, sans-serif; font-size:14px; font-weight:900;">Email</h5>
                                     <h5><asp:Label ID="restEmail" runat="server" Text='<%# Eval("restaurantEmail") %>'></asp:Label></h5>
                                 </div>
                             </div>
@@ -116,19 +116,19 @@
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <div class="input-append input">
+                        <div class="input-append date form_datetime">
                             <asp:TextBox ID="TextBox1" runat="server"  Placeholder="Dining Date"></asp:TextBox>
                             <span class="add-on"><i class="icon-th"></i></span>
                         </div>
                     </div>
                     <div class="col-sm-4">
-                            <div class="input-append input">
+                            <div class="input-append date form_time">
                                 <asp:TextBox ID="TextBox2" runat="server"  Placeholder="Checkin Time"></asp:TextBox>
                                 <span class="add-on"><i class="icon-th"></i></span>
                             </div>
                     </div>
                     <div class="col-sm-4">
-                            <div class="input-append input">
+                            <div class="input-append date form_time">
                                 <asp:TextBox ID="TextBox3" runat="server"  Placeholder="CheckoutTime"></asp:TextBox>
                                 <span class="add-on"><i class="icon-th"></i></span>
                             </div>
@@ -146,7 +146,7 @@
                             </div>
                     </div>
                     <div class="col-sm-3" style="margin-top:10px;">
-                        <a href="#" class="btn btn-default submit_btn">Book Table</a>
+                        <a href="#" class="submit_btn" style="padding:5px">Book Table</a>
                     </div>
                 </div>
                 </div>
@@ -205,7 +205,7 @@
                                 </div>
                                 <div class="media-body">
                                     <a href="#"><h3><asp:Label ID="ItemName" runat="server" Text='<%# Eval("itemName") %>'></asp:Label></h3></a>
-                                    <h4><asp:Label ID="ItemPrice" runat="server" Text='<%# Eval("itemPrice") %>'></asp:Label></h4>
+                                    <h5 style="font-family: Open Sans, sans-serif; font-size:14px; font-weight:900; float:right; padding:10px"><asp:Label ID="ItemPrice" runat="server" Text='<%#"Rs." + Eval("itemPrice") %>'></asp:Label></h5>
                                     <p><asp:Label ID="ItemDes" runat="server" Text='<%# Eval("itemDescription") %>'></asp:Label> </p>
                                     <a class="read_mor_btn" href="#">Add To Cart</a>
                                  </div>
