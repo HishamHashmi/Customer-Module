@@ -26,7 +26,7 @@ namespace CustomerModule
                     LoggedIn.Visible = true;
                     BindData();
                 }
-         }
+        }
 
         private void BindData()
         {
@@ -75,6 +75,7 @@ namespace CustomerModule
                 Session["customerAccountEmail"] = objDr["customerAccountEmail"].ToString();
             }
             con.Close();
+            Page_Load(sender, e);
         }
         protected void ButtonSignUp_Click(object sender, EventArgs e)
         {

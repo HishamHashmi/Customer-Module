@@ -116,37 +116,37 @@
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <div class="input-append date form_datetime">
-                            <asp:TextBox ID="TextBox1" runat="server"  Placeholder="Dining Date"></asp:TextBox>
+                        <div class="input-append date">
+                            <asp:TextBox ID="TextBoxDate" runat="server"  Placeholder="Dining Date"></asp:TextBox>
                             <span class="add-on"><i class="icon-th"></i></span>
                         </div>
                     </div>
                     <div class="col-sm-4">
                             <div class="input-append date form_time">
-                                <asp:TextBox ID="TextBox2" runat="server"  Placeholder="Checkin Time"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxCIN" runat="server"  Placeholder="Checkin Time"></asp:TextBox>
                                 <span class="add-on"><i class="icon-th"></i></span>
                             </div>
                     </div>
                     <div class="col-sm-4">
                             <div class="input-append date form_time">
-                                <asp:TextBox ID="TextBox3" runat="server"  Placeholder="CheckoutTime"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxCOUT" runat="server"  Placeholder="CheckoutTime"></asp:TextBox>
                                 <span class="add-on"><i class="icon-th"></i></span>
                             </div>
                     </div>
                     <div class="col-sm-4">
                             <div class="input-append input">
-                                <asp:TextBox ID="TextBox4" runat="server" Placeholder="No. of Persons"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxPersons" runat="server" Placeholder="No. of Persons"></asp:TextBox>
                                 <span class="add-on"><i class="icon-th"></i></span>
                             </div>
                     </div>
                     <div class="col-sm-4">
                             <div class="input-append input">
-                                <asp:TextBox ID="TextBox5" runat="server"  Placeholder="DiscountID"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxD" runat="server"  Placeholder="DiscountID"></asp:TextBox>
                                 <span class="add-on"><i class="icon-th"></i></span>
                             </div>
                     </div>
                     <div class="col-sm-3" style="margin-top:10px;">
-                        <a href="#" class="submit_btn" style="padding:5px">Book Table</a>
+                       <asp:Button ID="Button1"  class="btn btn-primary btn-md" runat="server" Text="Book MY Table" OnClick="Button1_Click" />
                     </div>
                 </div>
                 </div>
@@ -249,7 +249,7 @@
                                                 <asp:TextBox ID="TBoxMsg" runat="server" class="form-control" Placeholder="Message" TextMode="MultiLine"></asp:TextBox>
                                             </div>
                                             <div class="form-group col-md-12" style="padding: 20px;">
-                                                <asp:Button ID="ButtonSubmit" class="btn btn-default submit_btn" runat="server" Text="Submit" />
+                                                <asp:Button ID="ButtonSubmit" runat="server" Text="Submit" CssClass="submit_btn" />
                                              </div>
                                         </form>
                                         <div id="success">
