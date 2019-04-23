@@ -146,7 +146,7 @@
                             </div>
                     </div>
                     <div class="col-sm-3" style="margin-top:10px;">
-                       <asp:Button ID="Button1"  class="btn btn-primary btn-md" runat="server" Text="Book MY Table" OnClick="Button1_Click" />
+                       <asp:Button ID="Button1"  CssClass="btn btn-danger submit_btn" runat="server" Text="Book MY Table" OnClick="Button1_Click" />
                     </div>
                 </div>
                 </div>

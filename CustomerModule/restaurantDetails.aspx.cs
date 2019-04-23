@@ -35,7 +35,6 @@ namespace CustomerModule
             SqlDataReader sdr = null;
             con.Open();
             sdr = cmd.ExecuteReader();
-
             while (sdr.Read())
             {
                 restName.Text = (sdr["restaurantName"].ToString());
@@ -86,6 +85,7 @@ namespace CustomerModule
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-2JBDRTC\SQLEXPRESS;Initial Catalog=ProjectStuff;Integrated Security=True");
             string time1 = TextBoxCIN.Text;
             string time2 = TextBoxCOUT.Text;
             string date = TextBoxDate.Text;

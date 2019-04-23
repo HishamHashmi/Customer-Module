@@ -301,13 +301,14 @@
                             <div class="feature_item_inner">
                                <img src='<%# Eval("itemImage").ToString().Replace("~","") %>' style="width:350px; height:300px;" />
                                 <div class="icon_hover">
-                                    <i class="fa fa-search"></i>
+                                    <i class="fa fa-search" data-toggle="modal" data-target="#myModal"></i>
                                     <i class="fa fa-shopping-cart"></i>
                                 </div>
                             </div>
                             <div class="title_text">
                                 <div class="feature_left"><a href="#"><span><asp:Label ID="LabelName" runat="server" Text='<%# Eval("itemName") %>'></asp:Label></span></a></div>
                             </div>
+
                         </div>
                         </div>
                         </ItemTemplate>
