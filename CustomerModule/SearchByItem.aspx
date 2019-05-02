@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Project.Master" AutoEventWireup="true" CodeBehind="restaurantSearch.aspx.cs" Inherits="CustomerModule.restaurantSearch" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Project.Master" AutoEventWireup="true" CodeBehind="SearchByItem.aspx.cs" Inherits="CustomerModule.SearchByItem" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -25,7 +25,7 @@
             <div class="container">
                 <div class="row">
                     <div class= "col-lg-12 col-md-12 col-sm-12">
-               <div class="p_recype_item_main" style="margin-top:50px;">
+                <div class="p_recype_item_main">
                     <div class="row p_recype_item_active">
                         <asp:Repeater ID="RepeaterImages" runat="server">
                         <ItemTemplate>
@@ -53,5 +53,4 @@
             </div>
             </div>
         </section>
-        <!--================End Recent Blog Area =================-->
 </asp:Content>

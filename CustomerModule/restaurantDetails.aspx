@@ -15,17 +15,6 @@
         <section class="most_popular_item_area menu_list_page">
                 <div class="container">
                    <div class="row">
-                        <div class="popular_filter" style="padding-bottom: 50px;">
-                            <ul>
-                                <li class="active"><a href="*">About US</a></li>
-                                <li><a href="#book">Book Your Table</a></li>
-                                <li><a href="#menu">Our Menu</a></li>
-                                <li><a href="#contact">Contact Us</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="s_black_title">
                                 <h3>About</h3>
@@ -146,76 +135,76 @@
                             </div>
                     </div>
                     <div class="col-sm-3" style="margin-top:10px;">
-                       <asp:Button ID="Button1"  CssClass="btn btn-danger submit_btn" runat="server" Text="Book MY Table" OnClick="Button1_Click" />
+                       <asp:Button ID="Button1"  CssClass="btn btn-danger submit_btn" runat="server" Text="Book MY Table" OnClick="Button1_Click" OnClientClick="your table has been booked!!" />
                     </div>
                 </div>
                 </div>
             </div>
         </section>
         <!--================End Booking Table Area =================-->
-        <section class="most_popular_item_area menu_list_page">
-            <div class="container" id="menu">
-                <div class="s_black_title">
-                    <h3 >Promotional</h3>
-                    <h2>Offers</h2>
-                </div>
-                <div class="feature_slider">
-                     <asp:Repeater ID="RepeaterDeal" runat="server">
-                        <ItemTemplate>
+    <section class="most_popular_item_area menu_list_page">
+        <!--<div class="container" id="menu">
+            <div class="s_black_title">
+                <h3>Promotional</h3>
+                <h2>Offers</h2>
+            </div>
+            <div class="feature_slider">
+                <asp:Repeater ID="RepeaterDeal" runat="server">
+                    <ItemTemplate>
                         <div class="item">
-                        <div class="feature_item">
-                            <div class="feature_item_inner">
-                               <img src='<%# Eval("dealImage").ToString().Replace("~","") %>' style="width:350px; height:300px;" />
-                                <div class="icon_hover">
-                                    <i class="fa fa-search"></i>
-                                    <i class="fa fa-shopping-cart"></i>
+                            <div class="feature_item">
+                                <div class="feature_item_inner">
+                                    <img src='<%# Eval("dealImage").ToString().Replace("~","") %>' style="width: 350px; height: 300px;" />
+                                    <div class="icon_hover">
+                                        <i class="fa fa-search"></i>
+                                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="title_text">
+                                    <div class="feature_left"><a href="#"><span>
+                                        <asp:Label ID="LabelName" runat="server" Text='<%# Eval("dealName") %>'></asp:Label></span></a></div>
                                 </div>
                             </div>
-                            <div class="title_text">
-                                <div class="feature_left"><a href="#"><span><asp:Label ID="LabelName" runat="server" Text='<%# Eval("dealName") %>'></asp:Label></span></a></div>
-                            </div>
                         </div>
-                        </div>
-                        </ItemTemplate>
-                        </asp:Repeater>
-                </div>
+                    </ItemTemplate>
+                </asp:Repeater>
             </div>
-            <div class="s_black_title" style="margin-top:50px;">
-                <h3 >Our</h3>
+        </div>
+        -->
+            <div class="s_black_title" style="margin-top: 50px;">
+                <h3>Our</h3>
                 <h2>Menu</h2>
             </div>
-                 <div class="popular_filter" style="margin-top:50px;">
-                    <ul>
-                        <li class="active" data-filter="*"><a href="">All</a></li>
-                        <li data-filter=".break"><a href="">Breakfast</a></li>
-                        <li data-filter=".lunch"><a href="">Lunch</a></li>
-                        <li data-filter=".dinner"><a href="">Dinner</a></li>
-                        <li data-filter=".snacks"><a href="">Snacks</a></li>
-                        <li data-filter=".coffee"><a href="">Coffee</a></li>
-                    </ul>
-                </div>
-                <div class="p_recype_item_main">
-                    <div class="row p_recype_item_active">
-                    <asp:Repeater ID="RepeaterMenu" runat="server">
+        <div class="p_recype_item_main" style="margin-top50px;">
+            <div class="row p_recype_item_active">
+                <asp:Repeater ID="RepeaterMenu" runat="server">
                     <ItemTemplate>
-                   <div class="col-md-6 break snacks">
-                            <div class="media" style="width:500px">
+                        <div class="col-md-6 break snacks">
+                            <div class="media" style="width: 500px">
                                 <div class="media-left">
-                                    <img src='<%# Eval("itemImage").ToString().Replace("~","") %>' style="width:100px; height:120px;" />
+                                    <img src='<%# Eval("itemImage").ToString().Replace("~","") %>' style="width: 100px; height: 120px;" />
                                 </div>
                                 <div class="media-body">
-                                    <a href="#"><h3><asp:Label ID="ItemName" runat="server" Text='<%# Eval("itemName") %>'></asp:Label></h3></a>
-                                    <h5 style="font-family: Open Sans, sans-serif; font-size:14px; font-weight:900; float:right; padding:10px"><asp:Label ID="ItemPrice" runat="server" Text='<%#"Rs." + Eval("itemPrice") %>'></asp:Label></h5>
-                                    <p><asp:Label ID="ItemDes" runat="server" Text='<%# Eval("itemDescription") %>'></asp:Label> </p>
-                                    <a class="read_mor_btn" href="#">Add To Cart</a>
-                                 </div>
+                                    <a href="#">
+                                        <h3>
+                                            <asp:Label ID="ItemName" runat="server" Text='<%# Eval("itemName") %>'></asp:Label></h3>
+                                    </a>
+                                    <h5 style="font-family: Open Sans, sans-serif; font-size: 14px; font-weight: 900; float: right; padding: 10px">
+                                        <asp:Label ID="ItemPrice" runat="server" Text='<%#"Rs." + Eval("itemPrice") %>'></asp:Label></h5>
+                                    <p>
+                                        <asp:Label ID="ItemDes" runat="server" Text='<%# Eval("itemDescription") %>'></asp:Label>
+                                    </p>
+                                    <a class="read_mor_btn" href='<%# "AddToCart.aspx?ID=" + Eval("itemID") %>'>Add To Cart</a>
+                                   
+
+                                </div>
                             </div>
                         </div>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                </div>
-              </div>
-         </section>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+        </div>
+    </section>
         <!--================End Our feature Area =================-->
             <section class="banner_area" style="background-image: url(img/banner/Food-banner-2.jpg)">
                 <div class="container" id="contact">
@@ -249,7 +238,7 @@
                                                 <asp:TextBox ID="TBoxMsg" runat="server" class="form-control" Placeholder="Message" TextMode="MultiLine"></asp:TextBox>
                                             </div>
                                             <div class="form-group col-md-12" style="padding: 20px;">
-                                                <asp:Button ID="ButtonSubmit" runat="server" Text="Submit" CssClass="submit_btn" />
+                                                <asp:Button ID="ButtonSubmit" runat="server" Text="Submit" CssClass="btn btn-danger submit_btn" ForeColor="White" />
                                              </div>
                                         </form>
                                         <div id="success">
@@ -257,6 +246,7 @@
                                         </div>
                                         <div id="error">
                                             <p>Sorry! Message not sent. Something went wrong!!</p>
+                                            
                                         </div>
                                     </div>
                                 </div>

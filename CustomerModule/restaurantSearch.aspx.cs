@@ -24,8 +24,17 @@ namespace CustomerModule
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = " SELECT rp.* from restaurantProfile AS rp JOIN (SELECT restaurantID from menuItems GROUP BY restaurantID) AS mi" +
-                " ON rp.restaurantID = mi.restaurantID  WHERE restaurantName= '" + Request.QueryString["rName"] +"'";   // OR '" + Request.QueryString["cName"] + "'
+            if (Request.QueryString["cName"] != null && Request.QueryString["cName"] != "" && Request.QueryString["rName"] != null && Request.QueryString["rName"] != "")
+                cmd.CommandText = "SELECT * from  restaurantProfile INNER JOIN menuItems ON restaurantProfile.restaurantID = menuItems.restaurantID WHERE restaurantProfile.restaurantName= '" + Request.QueryString["rName"] + "' AND menuItems.itemName='" + Request.QueryString["cName"] + "'";
+            else if (Request.QueryString["rName"] != null && Request.QueryString["rName"] != "")
+                cmd.CommandText = "SELECT * from  restaurantProfile WHERE restaurantProfile.restaurantName= '" + Request.QueryString["rName"] + "'";
+
+        else if (Request.QueryString["cName"]!=null && Request.QueryString["cName"] != "")
+                cmd.CommandText = "SELECT * from  restaurantProfile INNER JOIN menuItems ON restaurantProfile.restaurantID = menuItems.restaurantID WHERE  menuItems.itemName='" + Request.QueryString["cName"] + "'";
+
+
+
+            //cmd.CommandText = "SELECT * from  restaurantProfile INNER JOIN menuItems ON restaurantProfile.restaurantID = menuItems.restaurantID WHERE restaurantProfile.restaurantName= '"+Request.QueryString["rName"]+"' OR menuItems.itemName='"+Request.QueryString["cName"]+"'" ;
             cmd.CommandType = CommandType.Text;
             DataSet objDS = new DataSet();
             SqlDataAdapter objDA = new SqlDataAdapter();

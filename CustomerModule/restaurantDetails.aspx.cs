@@ -19,18 +19,14 @@ namespace CustomerModule
                 BindData();
                 BindDataMenu();
                 BindDataDeal();
-                if (Session["customerAccountID"]!=null)
-                {
-                    string id = Session["customerAccountID"].ToString();
-                    int ID = int.Parse(id);
-                 }
+             
             }
         }
         private void BindData()
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT * from restaurantProfile where restaurantID=" +Request.QueryString["ID"];
+            cmd.CommandText = "SELECT * from restaurantProfile WITH (NOLOCK) where restaurantID=" + Request.QueryString["ID"];
             cmd.CommandType = CommandType.Text;
             SqlDataReader sdr = null;
             con.Open();
@@ -52,7 +48,7 @@ namespace CustomerModule
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT * from menuItems where restaurantID=" + Request.QueryString["ID"];
+            cmd.CommandText = "SELECT * from menuItems WITH (NOLOCK) where restaurantID=" + Request.QueryString["ID"];
             cmd.CommandType = CommandType.Text;
             DataSet objDS = new DataSet();
             SqlDataAdapter objDA = new SqlDataAdapter();
@@ -62,6 +58,15 @@ namespace CustomerModule
             con.Close();
             RepeaterMenu.DataSource = objDS;
             RepeaterMenu.DataBind();
+
+            SqlCommand cmd2 = new SqlCommand();
+            cmd2.Connection = con;
+            cmd2.CommandText = "INSERT into orderDetails(restaurantID, quantity) values('" + Request.QueryString["ID"] + "')";
+            cmd2.CommandType = CommandType.Text;
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();     
+            
         }
         private void BindDataDeal()
         {
@@ -80,12 +85,10 @@ namespace CustomerModule
         }
         bool found = false;
         int tableno;
-
-
-
         protected void Button1_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-2JBDRTC\SQLEXPRESS;Initial Catalog=ProjectStuff;Integrated Security=True");
+
             string time1 = TextBoxCIN.Text;
             string time2 = TextBoxCOUT.Text;
             string date = TextBoxDate.Text;
@@ -94,7 +97,7 @@ namespace CustomerModule
             string name = TextBoxName.Text;
 
             //retrieving the data from addtable 
-            string t = "SELECT TableNO,NoOfSeats FROM Add_Table ORDER BY NoOfSeats";
+            string t = "SELECT TableNO,NoOfSeats FROM Add_Table  with (nolock)  ORDER BY NoOfSeats";
             SqlCommand cmd1 = new SqlCommand();
             cmd1.Connection = con;
             cmd1.CommandType = CommandType.Text;
@@ -104,6 +107,7 @@ namespace CustomerModule
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = cmd1;
             adapter.Fill(ds);
+            con.Close();
             int count = ds.Tables[0].Rows.Count;
 
             string[,] tables = new string[count, 2];
@@ -127,16 +131,18 @@ namespace CustomerModule
                 int[] booked = new int[count];
                 int n = 0;
                 int total = 0;
-                string y = "select NoOfSeats from Add_Table where TableNO NOT IN (select tableNo from tableReservation where arrivalTime >='" + time1 + "' and checkoutTime <= '" + time2 + "')";
+                string y = "select NoOfSeats from Add_Table WITH (NOLOCK) where TableNO NOT IN (select tableNo from tableReservation where arrivalTime >='" + time1 + "' and checkoutTime <= '" + time2 + "')";
 
                 SqlCommand cmd5 = new SqlCommand();
                 cmd5.Connection = con;
                 cmd5.CommandType = CommandType.Text;
                 cmd5.CommandText = y;
                 DataSet ds2 = new DataSet();
+                con.Open();
                 SqlDataAdapter adapter2 = new SqlDataAdapter();
                 adapter2.SelectCommand = cmd5;
                 adapter2.Fill(ds2);
+                con.Close();
                 int count2 = ds2.Tables[0].Rows.Count;
                 if (count2 != 0)
                 {
@@ -169,10 +175,12 @@ namespace CustomerModule
                                 cmd2.Connection = con;
                                 cmd2.CommandType = CommandType.Text;
                                 cmd2.CommandText = v;
+                                con.Open();
                                 DataSet ds1 = new DataSet();
                                 SqlDataAdapter adapter1 = new SqlDataAdapter();
                                 adapter1.SelectCommand = cmd2;
                                 adapter1.Fill(ds1);
+                                con.Close();
                                 int count1 = ds1.Tables[0].Rows.Count;
                                 if (count1 != 0)
                                 {
@@ -218,11 +226,11 @@ namespace CustomerModule
                                         tableno = int.Parse(tables[j, 0]);
                                         booked[n] = tableno;
                                         SqlCommand cmd = new SqlCommand("insert into tableReservation(arrivalTime,checkoutTime,NoOfPersons,discountID,date,customerName,tableNo,customerID) values('" + time1 + "', '" + time2 + "','" + persons + "','" + discount + "','" + date + "','" + name + "','" + tableno + "','" + Session["customerAccountID"] + "')", con);
+                                        con.Open();
                                         cmd.ExecuteNonQuery();
+                                        con.Close();
                                         break;
                                     }
-
-
                                 }
                                 else
                                 {
@@ -231,7 +239,9 @@ namespace CustomerModule
                                     tableno = int.Parse(tables[j, 0]);
                                     booked[n] = tableno;
                                     SqlCommand cmd = new SqlCommand("insert into tableReservation(arrivalTime,checkoutTime,NoOfPersons,discountID,date,customerName,tableNo,customerID) values('" + time1 + "', '" + time2 + "','" + persons + "','" + discount + "','" + date + "','" + name + "','" + tableno + "','" + Session["customerAccountID"] + "')", con);
+                                    con.Open();
                                     cmd.ExecuteNonQuery();
+                                    con.Close();
                                     break;
                                 }
                             }
@@ -251,10 +261,12 @@ namespace CustomerModule
                                 cmd2.Connection = con;
                                 cmd2.CommandType = CommandType.Text;
                                 cmd2.CommandText = v;
+                                con.Open();
                                 DataSet ds1 = new DataSet();
                                 SqlDataAdapter adapter1 = new SqlDataAdapter();
                                 adapter1.SelectCommand = cmd2;
                                 adapter1.Fill(ds1);
+                                con.Close();
                                 int count1 = ds1.Tables[0].Rows.Count;
                                 if (count1 != 0)
                                 {
@@ -299,7 +311,9 @@ namespace CustomerModule
                                         tableno = int.Parse(tables[k, 0]);
                                         booked[n] = tableno;
                                         SqlCommand cmd3 = new SqlCommand("insert into tableReservation(arrivalTime,checkoutTime,NoOfPersons,discountID,date,customerName,tableNo,customerID) values('" + time1 + "', '" + time2 + "','" + persons + "','" + discount + "','" + date + "','" + name + "','" + tableno + "','" + Session["customerAccountID"] + "')", con);
+                                        con.Open();
                                         cmd3.ExecuteNonQuery();
+                                        con.Close();
                                         break;
                                     }
                                 }
@@ -311,31 +325,30 @@ namespace CustomerModule
                                     tableno = int.Parse(tables[k, 0]);
                                     booked[n] = tableno;
                                     SqlCommand cmd3 = new SqlCommand("insert into tableReservation(arrivalTime,checkoutTime,NoOfPersons,discountID,date,customerName,tableNo,customerID) values('" + time1 + "', '" + time2 + "','" + persons + "','" + discount + "','" + date + "','" + name + "','" + tableno + "','" + Session["customerAccountID"] + "')", con);
+                                    con.Open();
                                     cmd3.ExecuteNonQuery();
+                                    con.Close();
                                     break;
                                 }
                             }
                         }
                         n++;
+                        RC--;
                     }
+                    //Response.Redirect("restaurantDetails.aspx");
                 }
-                /* if (RC == 0)
-                 {
-                     for (int x = 0; x < n; x++)
-                     {
-                         tableno = booked[x];
-                         SqlCommand cmd3 = new SqlCommand("insert into reservation(ArrivalTime,CheckoutTime,NoOfPersons,DiscountID,Date,CustomerName,TableNO) values('" + time1 + "', '" + time2 + "','" + RC + "','" + discount + "','" + date + "','" + name + "','" + tableno + "')", con);
-                         cmd3.ExecuteNonQuery();
-                     }
-                 }
-                 else
-                 {
-                     Response.Write("no table found");
-                 }*/
+                else
+                {
+                    //notify no table available
+                }
+            }
+            else
+            {
+                //notify no of persons are more than the capacity available
             }
 
-            con.Close();
-            Response.Redirect("restaurantDetails.aspx");
+            Response.Redirect("restaurantDetails.aspx?ID=" + Request.QueryString["ID"]);
         }
     }
 }
+

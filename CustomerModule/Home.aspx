@@ -268,6 +268,7 @@
                             <asp:TextBox ID="restName" runat="server" Placeholder="Restaurant" ></asp:TextBox>
                             <span class="add-on"><i class="icon-th"></i></span>
                             <ajaxToolkit:AutoCompleteExtender ID="AutoCompleteRestaurant" runat="server" TargetControlID="restName" UseContextKey="true" CompletionInterval="500" MinimumPrefixLength="1" ServiceMethod="restaurantData"  CompletionListCssClass="completionList" CompletionListHighlightedItemCssClass="itemHighlighted" CompletionListItemCssClass="listItem"></ajaxToolkit:AutoCompleteExtender>
+                        
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -276,7 +277,8 @@
                                 <asp:TextBox ID="cuisineName" runat="server" Placeholder="Cuisine"></asp:TextBox>
                                 <ajaxToolkit:AutoCompleteExtender ID="AutoCompleteCuisine" runat="server"  TargetControlID="cuisineName" UseContextKey="true" CompletionInterval="500" MinimumPrefixLength="1" ServiceMethod="cuisineData" CompletionListCssClass="completionList" CompletionListHighlightedItemCssClass="itemHighlighted" CompletionListItemCssClass="listItem" ></ajaxToolkit:AutoCompleteExtender>
                                 <span class="add-on"><i class="icon-th"></i></span>
-                             </div>
+                           
+                            </div>
                     </div>
                     <div class="col-sm-3">
                         <a href="#" onclick="MoveToSearch();"  class="submit_btn" style="height:40px; padding-top:5px;">Find Restaurant</a>
@@ -299,14 +301,13 @@
                         <div class="item">
                         <div class="feature_item">
                             <div class="feature_item_inner">
-                               <img src='<%# Eval("itemImage").ToString().Replace("~","") %>' style="width:350px; height:300px;" />
+                               <img src='<%# Eval("itemImage").ToString().Replace("~","") %>' style="width:350px; height:250px;" />
                                 <div class="icon_hover">
-                                    <i class="fa fa-search" data-toggle="modal" data-target="#myModal"></i>
-                                    <i class="fa fa-shopping-cart"></i>
+                                    <a href= '<%# "SearchByItem.aspx?Name=" + Eval("itemName") %>'><i class="fa fa-search"></i></a>
                                 </div>
                             </div>
-                            <div class="title_text">
-                                <div class="feature_left"><a href="#"><span><asp:Label ID="LabelName" runat="server" Text='<%# Eval("itemName") %>'></asp:Label></span></a></div>
+                            <div class="title_text" >
+                                <div class="feature_left"><asp:Label ID="LabelName" runat="server" Text='<%# Eval("itemName") %>'></asp:Label></div>
                             </div>
 
                         </div>
@@ -332,8 +333,7 @@
             } else if (rName && cName) {
                  mLocation = "restaurantSearch.aspx?rName=" + rName + "&cName=" + cName;
             }     
-           location.href = mLocation;
-            
+            location.href = mLocation;
         }
 
     </script>

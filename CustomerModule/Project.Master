@@ -43,6 +43,8 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
         
+        
+        
      <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -77,14 +79,14 @@
                             <asp:PlaceHolder ID="NotLoggedIn" runat="server">
                             <li><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>
                             <li><a href="#" data-toggle="modal" data-target="#myModalSignUp">Sign Up</a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                             </asp:PlaceHolder>
                             <asp:PlaceHolder ID="LoggedIn" runat="server">
                                 <li> <a href="#" class="dropdown-toggle" ><asp:Label ID="CustomerName" runat="server" CssClass="s_white_title" Text='<%# Eval("customerAccountUsername") %>'></asp:Label></a><span><li><a href="LogOut.aspx">Sign out</a></li></span></li>
-                                 <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                             </asp:PlaceHolder>
+                              <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
+                    
                       <!-- /.navbar-collapse -->
                     <div class="modal fade" id="myModal" role="dialog">
                         <div class="modal-dialog modal-sm">
@@ -95,11 +97,11 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="form-group">
-                                        <label for="usrname" style="font-size: 15px;"><span class="glyphicon glyphicon-user"></span>Username</label>
+                                        <label for="usrname" style="font-size: 15px;"><span class="glyphicon glyphicon-user"></span> Username</label>
                                         <asp:TextBox ID="TextName" class="form-control" Height="40px" runat="server"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
-                                        <label for="psw" style="font-size: 15px;"><span class="glyphicon glyphicon-lock"></span>Password</label>
+                                        <label for="psw" style="font-size: 15px;"><span class="glyphicon glyphicon-lock"></span> Password</label>
                                         <asp:TextBox ID="TextPass" class="form-control" Height="40px" runat="server"></asp:TextBox>
                                     </div>
                                     <div class="checkbox">
