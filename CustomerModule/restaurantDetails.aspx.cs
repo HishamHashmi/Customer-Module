@@ -19,7 +19,6 @@ namespace CustomerModule
                 BindData();
                 BindDataMenu();
                 BindDataDeal();
-             
             }
         }
         private void BindData()
@@ -225,7 +224,7 @@ namespace CustomerModule
                                         RC = int.Parse(tables[j, 1]) - RC;
                                         tableno = int.Parse(tables[j, 0]);
                                         booked[n] = tableno;
-                                        SqlCommand cmd = new SqlCommand("insert into tableReservation(arrivalTime,checkoutTime,NoOfPersons,discountID,date,customerName,tableNo,customerID) values('" + time1 + "', '" + time2 + "','" + persons + "','" + discount + "','" + date + "','" + name + "','" + tableno + "','" + Session["customerAccountID"] + "')", con);
+                                        SqlCommand cmd = new SqlCommand("insert into tableReservation(arrivalTime,checkoutTime,NoOfPersons,discountID,date,customerName,tableNo,customerID,restaurantID) values('" + time1 + "', '" + time2 + "','" + persons + "','" + discount + "','" + date + "','" + name + "','" + tableno + "','" + Session["customerAccountID"] + "','" + Request.QueryString["ID"] +"')", con);
                                         con.Open();
                                         cmd.ExecuteNonQuery();
                                         con.Close();
@@ -238,7 +237,7 @@ namespace CustomerModule
                                     RC = int.Parse(tables[j, 1]) - RC;
                                     tableno = int.Parse(tables[j, 0]);
                                     booked[n] = tableno;
-                                    SqlCommand cmd = new SqlCommand("insert into tableReservation(arrivalTime,checkoutTime,NoOfPersons,discountID,date,customerName,tableNo,customerID) values('" + time1 + "', '" + time2 + "','" + persons + "','" + discount + "','" + date + "','" + name + "','" + tableno + "','" + Session["customerAccountID"] + "')", con);
+                                    SqlCommand cmd = new SqlCommand("insert into tableReservation(arrivalTime,checkoutTime,NoOfPersons,discountID,date,customerName,tableNo,customerID,restaurantID) values('" + time1 + "', '" + time2 + "','" + persons + "','" + discount + "','" + date + "','" + name + "','" + tableno + "','" + Session["customerAccountID"] + "','" + Request.QueryString["ID"] + "')", con);
                                     con.Open();
                                     cmd.ExecuteNonQuery();
                                     con.Close();
@@ -310,7 +309,7 @@ namespace CustomerModule
                                         RC = RC - int.Parse(tables[k, 1]);
                                         tableno = int.Parse(tables[k, 0]);
                                         booked[n] = tableno;
-                                        SqlCommand cmd3 = new SqlCommand("insert into tableReservation(arrivalTime,checkoutTime,NoOfPersons,discountID,date,customerName,tableNo,customerID) values('" + time1 + "', '" + time2 + "','" + persons + "','" + discount + "','" + date + "','" + name + "','" + tableno + "','" + Session["customerAccountID"] + "')", con);
+                                        SqlCommand cmd3 = new SqlCommand("insert into tableReservation(arrivalTime,checkoutTime,NoOfPersons,discountID,date,customerName,tableNo,customerID,restaurantID) values('" + time1 + "', '" + time2 + "','" + persons + "','" + discount + "','" + date + "','" + name + "','" + tableno + "','" + Session["customerAccountID"] + "','" + Request.QueryString["ID"] + "')", con);
                                         con.Open();
                                         cmd3.ExecuteNonQuery();
                                         con.Close();
@@ -324,7 +323,7 @@ namespace CustomerModule
                                     RC = RC - int.Parse(tables[k, 1]);
                                     tableno = int.Parse(tables[k, 0]);
                                     booked[n] = tableno;
-                                    SqlCommand cmd3 = new SqlCommand("insert into tableReservation(arrivalTime,checkoutTime,NoOfPersons,discountID,date,customerName,tableNo,customerID) values('" + time1 + "', '" + time2 + "','" + persons + "','" + discount + "','" + date + "','" + name + "','" + tableno + "','" + Session["customerAccountID"] + "')", con);
+                                    SqlCommand cmd3 = new SqlCommand("insert into tableReservation(arrivalTime,checkoutTime,NoOfPersons,discountID,date,customerName,tableNo,customerID,restaurantID) values('" + time1 + "', '" + time2 + "','" + persons + "','" + discount + "','" + date + "','" + name + "','" + tableno + "','" + Session["customerAccountID"] + "','" + Request.QueryString["ID"] + "')", con);
                                     con.Open();
                                     cmd3.ExecuteNonQuery();
                                     con.Close();
@@ -348,6 +347,17 @@ namespace CustomerModule
             }
 
             Response.Redirect("restaurantDetails.aspx?ID=" + Request.QueryString["ID"]);
+        }
+
+        protected void ButtonSubmit_Click(object sender, EventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "INSERT into restaurantFeedback(restCustomerFName,restCustomerLName,restCustomerEmail,restSubject,restFeedback,restaurantID)values('" + TBoxFName.Text + "','" + TBoxLName.Text + "','" + TBoxEmail.Text + "','"+ TBoxSub.Text+ "','"+TBoxMsg.Text+"','"+Request.QueryString["ID"]+"')";
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
     }
 }

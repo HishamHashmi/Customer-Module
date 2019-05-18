@@ -25,10 +25,10 @@ namespace CustomerModule
                 sdr = cmd.ExecuteReader();
                 while (sdr.Read())
                 {
-                    itemName.Text = (sdr["itemName"].ToString());
-                    customerNameLbl.Text = (sdr["customerName"].ToString());
-                    contactlbl.Text = (sdr["customerContact"].ToString());
-                    addressLbl.Text = sdr["customerAddress"].ToString(); ;
+                    LabelItem.Text = (sdr["itemName"].ToString());
+                    Labelcustomer.Text = (sdr["customerName"].ToString());
+                    Labelcontact.Text = (sdr["customerContact"].ToString());
+                    Labeladdress.Text = sdr["customerAddress"].ToString(); ;
                 }
                 con.Close();
             }

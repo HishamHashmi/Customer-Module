@@ -75,7 +75,14 @@ namespace CustomerModule
                 Session["customerAccountEmail"] = objDr["customerAccountEmail"].ToString();
             }
             con.Close();
-            Page_Load(sender, e);
+            if (Session["customerAccountEmail"] != null)
+            {
+                Page_Load(sender, e);
+            }
+            else
+            {
+                labelSignIn.Text = "Invalid Username or Password!!";
+            }
         }
         protected void ButtonSignUp_Click(object sender, EventArgs e)
         {
@@ -101,6 +108,7 @@ namespace CustomerModule
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
+                labelsignup.Text = "SIGN UP SUCCESSFUL!!";
             }
         }
     }

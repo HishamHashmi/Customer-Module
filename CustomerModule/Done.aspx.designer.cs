@@ -22,15 +22,6 @@ namespace CustomerModule {
         protected global::System.Web.UI.WebControls.Label LabelID;
         
         /// <summary>
-        /// itemName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label itemName;
-        
-        /// <summary>
         /// LabelItem control.
         /// </summary>
         /// <remarks>
@@ -38,15 +29,6 @@ namespace CustomerModule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LabelItem;
-        
-        /// <summary>
-        /// customerNameLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label customerNameLbl;
         
         /// <summary>
         /// Labelcustomer control.
@@ -58,15 +40,6 @@ namespace CustomerModule {
         protected global::System.Web.UI.WebControls.Label Labelcustomer;
         
         /// <summary>
-        /// contactlbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label contactlbl;
-        
-        /// <summary>
         /// Labelcontact control.
         /// </summary>
         /// <remarks>
@@ -74,15 +47,6 @@ namespace CustomerModule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Labelcontact;
-        
-        /// <summary>
-        /// addressLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label addressLbl;
         
         /// <summary>
         /// Labeladdress control.

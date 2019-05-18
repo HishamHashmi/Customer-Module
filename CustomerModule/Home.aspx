@@ -242,7 +242,7 @@
                         <div class="s_black_title" style="padding:50px 0px;">
                             <h3>About</h3>
                             <h2>Us</h2>
-                            <p style="padding:20px 0px;">Are you hungry? Wanna have dinner at your favourite on busy days? Then DastarKhwan is the right place for you! DastarKhwan, offers you a long and detailed <b> list of
+                            <p style="padding:20px 0px;">Are you hungry? Wanna have dinner at your favourite restaurant on busy days? Then DastarKhwan is the right place for you! DastarKhwan, offers you a long and detailed <b> list of
                                     restaurants near you</b>. If you are in a mood of Dine-In with your family, reserve your table at your favourite place and Dine-In on your desired time without having to find an empty table 
                                     furthur, if you feel too lazy to drive to your favourite restaurant, you can just order food and get it delivered at your place.</p>
                             <h3 style="padding:20px 0px;">What's new?</h3>

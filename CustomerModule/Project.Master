@@ -98,19 +98,19 @@
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="usrname" style="font-size: 15px;"><span class="glyphicon glyphicon-user"></span> Username</label>
-                                        <asp:TextBox ID="TextName" class="form-control" Height="40px" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="TextName" class="form-control" Height="40px" runat="server" AutoComplete="Disabled"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
                                         <label for="psw" style="font-size: 15px;"><span class="glyphicon glyphicon-lock"></span> Password</label>
-                                        <asp:TextBox ID="TextPass" class="form-control" Height="40px" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="TextPass" class="form-control" Height="40px" runat="server" AutoComplete="Disabled" TextMode="Password" ValidationGroup="*"></asp:TextBox>
                                     </div>
                                     <div class="checkbox">
                                         <asp:CheckBox ID="CheckRember" class="form-control" Width="150px" runat="server" Text="Remember Me" />
                                     </div>
-                                    <asp:Button ID="ButtonSignIn" runat="server" Text="Sign In" Style="height: 50px; background-color: black; color: white;" class="btn btn-default btn-block" OnClick="ButtonSignIn_Click" />
+                                    <asp:Button ID="ButtonSignIn" runat="server" Text="Sign In" Style="height: 50px; background-color: black; color: white;" class="btn btn-default btn-block" OnClick="ButtonSignIn_Click"/>
                                 </div>
                                 <div class="modal-footer">
-                                    <!--<p>Not a member? <a href="#" data-toggle="modal" data-target="#myModalSignUp" aria-hidden="true">Sign Up</a></p>-->
+                                   <asp:Label ID="labelSignIn" style="font-size:15px; text-align:center;" runat="server" Text="" CssClass="form-control"></asp:Label>
                                 </div>
                             </div>
                         </div>
@@ -125,19 +125,19 @@
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="usrname" style="font-size: 15px;"><span class="glyphicon glyphicon-user"></span> Username</label>
-                                        <asp:TextBox ID="TextBoxUsername" class="form-control" Height="40px" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxUsername" class="form-control" Height="40px" runat="server" AutoComplete="Disabled"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
                                         <label for="psw" style="font-size: 15px;"><span class="glyphicon glyphicon-lock"></span> Password</label>
-                                        <asp:TextBox ID="TextBoxPassword" class="form-control" Height="40px" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxPassword" class="form-control" Height="40px" runat="server"  AutoComplete="Disabled" TextMode="Password" ValidationGroup="*"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
                                         <label for="pswRpt" style="font-size: 15px;"><span class="glyphicon glyphicon-lock"></span> Repeat Password</label>
-                                        <asp:TextBox ID="TextBoxRptPassword" class="form-control" Height="40px" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxRptPassword" class="form-control" Height="40px" runat="server"  AutoComplete="Disabled" TextMode="Password" ValidationGroup="*"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
                                         <label for="Email" style="font-size: 15px;"><span class="glyphicon glyphicon-envelope"></span> Email</label>
-                                        <asp:TextBox ID="TextBoxUserEmail" class="form-control" Height="40px" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxUserEmail" class="form-control" Height="40px" runat="server" AutoComplete="Disabled"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
                                         <asp:Button ID="ButtonSignUp" runat="server" Text="Sign Up" Style="height: 50px; background-color: black; color: white;" class="btn btn-default btn-block" OnClick="ButtonSignUp_Click" />
@@ -198,13 +198,13 @@
                                 </div>
                                 <ul>
                                     <li class="submitbox">
-                                        <asp:TextBox ID="TextBoxName" runat="server" Text="Name"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxName" runat="server" placeholder="Name" AutoComplete="Disabled"></asp:TextBox>
                                     </li>
                                     <li class="submitbox">
-                                        <asp:TextBox ID="TextBoxEmail" runat="server" Text="Email"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxEmail" runat="server" placeholder="Email" AutoCompleteType="Disabled"></asp:TextBox>
                                     </li>
                                     <li class="submitbox">
-                                        <asp:TextBox ID="TextBoxFeedback" runat="server" Text="Feedback"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxFeedback" runat="server" placeholder="Feedback" TextMode="SingleLine" AutoComplete="Disabled"></asp:TextBox>
                                     </li>
                                     <li  class="btn submit_btn" style="margin-top:20px; width:100px; height:50px;">
                                         <div><asp:Button ID="ButtonFeedbck" runat="server" Text="Submit" OnClick="ButtonFeedbck_Click"  CssClass="submit_btn" /> </div>

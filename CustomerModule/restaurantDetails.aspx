@@ -105,39 +105,42 @@
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <div class="input-append date">
-                            <asp:TextBox ID="TextBoxDate" runat="server"  Placeholder="Dining Date"></asp:TextBox>
+                        <div class="input-append input">
+                            <asp:TextBox ID="TextBoxDate" runat="server"  Placeholder="Dining Date" AutoComplete="Disabled"></asp:TextBox>
                             <span class="add-on"><i class="icon-th"></i></span>
                         </div>
                     </div>
                     <div class="col-sm-4">
-                            <div class="input-append date form_time">
-                                <asp:TextBox ID="TextBoxCIN" runat="server"  Placeholder="Checkin Time"></asp:TextBox>
+                            <div class="input-append  date form_time">
+                                <asp:TextBox ID="TextBoxCIN" runat="server"  Placeholder="Checkin Time" AutoComplete="Disabled"></asp:TextBox>
                                 <span class="add-on"><i class="icon-th"></i></span>
                             </div>
                     </div>
                     <div class="col-sm-4">
                             <div class="input-append date form_time">
-                                <asp:TextBox ID="TextBoxCOUT" runat="server"  Placeholder="CheckoutTime"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxCOUT" runat="server"  Placeholder="CheckoutTime" AutoComplete="Disabled"></asp:TextBox>
                                 <span class="add-on"><i class="icon-th"></i></span>
                             </div>
                     </div>
                     <div class="col-sm-4">
                             <div class="input-append input">
-                                <asp:TextBox ID="TextBoxPersons" runat="server" Placeholder="No. of Persons"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxPersons" runat="server" Placeholder="No. of Persons" AutoComplete="Disabled"></asp:TextBox>
                                 <span class="add-on"><i class="icon-th"></i></span>
                             </div>
                     </div>
                     <div class="col-sm-4">
                             <div class="input-append input">
-                                <asp:TextBox ID="TextBoxD" runat="server"  Placeholder="DiscountID"></asp:TextBox>
+                                <asp:TextBox ID="TextBoxD" runat="server"  Placeholder="DiscountID" AutoComplete="Disabled"></asp:TextBox>
                                 <span class="add-on"><i class="icon-th"></i></span>
                             </div>
                     </div>
                     <div class="col-sm-3" style="margin-top:10px;">
-                       <asp:Button ID="Button1"  CssClass="btn btn-danger submit_btn" runat="server" Text="Book MY Table" OnClick="Button1_Click" OnClientClick="your table has been booked!!" />
+                       <asp:Button ID="Button1"  CssClass="btn btn-danger submit_btn" runat="server" Text="Book MY Table" OnClick="Button1_Click" OnClientClick="Alert()" />
                     </div>
-                </div>
+                        <script type="text/javascript">
+                            alert("You table has been reserved");
+                        </script>
+                 </div>
                 </div>
             </div>
         </section>
@@ -179,7 +182,7 @@
             <div class="row p_recype_item_active">
                 <asp:Repeater ID="RepeaterMenu" runat="server">
                     <ItemTemplate>
-                        <div class="col-md-6 break snacks">
+                        <div class="col lg-6 col-md-6 break snacks">
                             <div class="media" style="width: 500px">
                                 <div class="media-left">
                                     <img src='<%# Eval("itemImage").ToString().Replace("~","") %>' style="width: 100px; height: 120px;" />
@@ -195,8 +198,8 @@
                                         <asp:Label ID="ItemDes" runat="server" Text='<%# Eval("itemDescription") %>'></asp:Label>
                                     </p>
                                     <a class="read_mor_btn" href='<%# "AddToCart.aspx?ID=" + Eval("itemID") %>'>Add To Cart</a>
-                                   
-
+                                    <i style="float: right;">
+                                        <label>Quantity: &nbsp;</label><input type="number" name="serialNumber"  style="width:50px;"/></i>
                                 </div>
                             </div>
                         </div>
@@ -223,31 +226,31 @@
                                     <div class="row contact_form_area">
                                         <form action="contact_process.php" method="post" id="contactForm">
                                             <div class="form-group col-md-12">
-                                                <asp:TextBox ID="TBoxFName" runat="server" class="form-control" Placeholder="First Name"></asp:TextBox>
+                                                <asp:TextBox ID="TBoxFName" runat="server" class="form-control" Placeholder="First Name" AutoComplete="Disabled"></asp:TextBox>
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <asp:TextBox ID="TBoxLName" runat="server" class="form-control" Placeholder="Last Name"></asp:TextBox>
+                                                <asp:TextBox ID="TBoxLName" runat="server" class="form-control" Placeholder="Last Name" AutoComplete="Disabled"></asp:TextBox>
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <asp:TextBox ID="TBoxEmail" runat="server" class="form-control" Placeholder="Email"></asp:TextBox>
+                                                <asp:TextBox ID="TBoxEmail" runat="server" class="form-control" Placeholder="Email" AutoComplete="Disabled"></asp:TextBox>
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <asp:TextBox ID="TBoxSub" runat="server" class="form-control" Placeholder="Subject"></asp:TextBox>
+                                                <asp:TextBox ID="TBoxSub" runat="server" class="form-control" Placeholder="Subject" AutoComplete="Disabled"></asp:TextBox>
                                             </div>
                                              <div class="form-group col-md-12">
-                                                <asp:TextBox ID="TBoxMsg" runat="server" class="form-control" Placeholder="Message" TextMode="MultiLine"></asp:TextBox>
+                                                <asp:TextBox ID="TBoxMsg" runat="server" class="form-control" Placeholder="Message" TextMode="MultiLine" AutoComplete="Disabled"></asp:TextBox>
                                             </div>
                                             <div class="form-group col-md-12" style="padding: 20px;">
-                                                <asp:Button ID="ButtonSubmit" runat="server" Text="Submit" CssClass="btn btn-danger submit_btn" ForeColor="White" />
+                                                <asp:Button ID="ButtonSubmit" runat="server" Text="Submit" CssClass="btn btn-danger submit_btn" ForeColor="White" OnClick="ButtonSubmit_Click" />
                                              </div>
                                         </form>
-                                        <div id="success">
+                                        <!--<div id="success">
                                             <p>Your text message sent successfully!</p>
                                         </div>
                                         <div id="error">
                                             <p>Sorry! Message not sent. Something went wrong!!</p>
                                             
-                                        </div>
+                                        </div>-->
                                     </div>
                                 </div>
                             </div>
