@@ -9,13 +9,11 @@
                         <div class="row contact_form_area" style="padding-top:150px;">
                             <h3 class="contact_title" style="padding:0px;">Your Order Has Been Placed</h3>;
                             <div class="row contact_form_area" style=" margin-bottom:20px;" >
-                            <h3 class="contact_title" style="padding:0px; font-size:25px;">Your ORDER ID is:</h3><span></span> <asp:Label ID="LabelID" runat="server" style="font-size:18px;" Text='<%# Eval("orderID") %>'></asp:Label>
-                               <h5 style="text-align:center; padding:0px; font-size:20px;">Your Billing Details are:</h5>
+                            <h3 class="contact_title" style="padding:0px; font-size:25px;">Your ORDER ID is:&nbsp<span><asp:Label ID="LabelID" runat="server" style="font-size:22px;" Text='<%# Eval("orderID") %>'></asp:Label></span> </h3>
+                               <h5 style="text-align:center; padding:0px; font-size:20px;">Your Details are:</h5>
                                <form action="#" method="post" id="cart" style="border:5px; border-color:black">
                                 <div class="col-md-6 col-lg-6">
                                  <div class="form-group col-md-12" style="text-align:left; margin-left:400px;">
-                                    <label  style="font-size:18px;" >Item Name: &nbsp &nbsp</label><span><asp:Label ID="LabelItem" runat="server" style="font-size:18px; " Text= '<%# Eval("itemName") %>'></asp:Label></span>
-                                    <br />
                                     <label style="font-size:18px;">Customer Name:&nbsp &nbsp</label><span><asp:Label ID="Labelcustomer" runat="server" style="font-size:18px;" Text='<%# Eval("customerName") %>' ></asp:Label></span>
                                     <br />
                                     <label style="font-size:18px;" >Customer Contact:&nbsp &nbsp</label><span><asp:Label ID="Labelcontact" runat="server" style="font-size:18px;" Text=' <%# Eval("customerContact") %> '></asp:Label></span>

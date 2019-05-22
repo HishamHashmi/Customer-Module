@@ -20,12 +20,13 @@ namespace CustomerModule
                 cmd.Connection = con;
                 cmd.CommandText = "SELECT * from homeDelivery";
                 cmd.CommandType = CommandType.Text;
-                SqlDataReader sdr = null;
                 con.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataReader sdr = null;
                 sdr = cmd.ExecuteReader();
                 while (sdr.Read())
                 {
-                    LabelItem.Text = (sdr["itemName"].ToString());
+                    LabelID.Text = (sdr["orderID"].ToString());
                     Labelcustomer.Text = (sdr["customerName"].ToString());
                     Labelcontact.Text = (sdr["customerContact"].ToString());
                     Labeladdress.Text = sdr["customerAddress"].ToString(); ;

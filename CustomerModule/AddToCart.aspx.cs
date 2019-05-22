@@ -59,6 +59,7 @@ namespace CustomerModule
 
             sqlTran.Commit();
             con.Close();
+            Response.Redirect("~/Done.aspx");
         }
    /*     protected void ButtonDelete_Click(object sender, EventArgs e)
         {
