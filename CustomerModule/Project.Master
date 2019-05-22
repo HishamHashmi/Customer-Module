@@ -98,11 +98,11 @@
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="usrname" style="font-size: 15px;"><span class="glyphicon glyphicon-user"></span> Username</label>
-                                        <asp:TextBox ID="TextName" class="form-control" Height="40px" runat="server" AutoComplete="Disabled"></asp:TextBox>
+                                        <asp:TextBox ID="TextName" class="form-control" Height="40px" runat="server"  AutoCompleteType="Disabled"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
                                         <label for="psw" style="font-size: 15px;"><span class="glyphicon glyphicon-lock"></span> Password</label>
-                                        <asp:TextBox ID="TextPass" class="form-control" Height="40px" runat="server" AutoComplete="Disabled" TextMode="Password" ValidationGroup="*"></asp:TextBox>
+                                        <asp:TextBox ID="TextPass" class="form-control" Height="40px" runat="server"  AutoCompleteType="Disabled" TextMode="Password" ValidationGroup="*"></asp:TextBox>
                                     </div>
                                     <div class="checkbox">
                                         <asp:CheckBox ID="CheckRember" class="form-control" Width="150px" runat="server" Text="Remember Me" />
@@ -125,19 +125,19 @@
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="usrname" style="font-size: 15px;"><span class="glyphicon glyphicon-user"></span> Username</label>
-                                        <asp:TextBox ID="TextBoxUsername" class="form-control" Height="40px" runat="server" AutoComplete="Disabled"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxUsername" class="form-control" Height="40px" runat="server"  AutoCompleteType="Disabled"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
                                         <label for="psw" style="font-size: 15px;"><span class="glyphicon glyphicon-lock"></span> Password</label>
-                                        <asp:TextBox ID="TextBoxPassword" class="form-control" Height="40px" runat="server"  AutoComplete="Disabled" TextMode="Password" ValidationGroup="*"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxPassword" class="form-control" Height="40px" runat="server"   AutoCompleteType="Disabled" TextMode="Password" ValidationGroup="*"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
                                         <label for="pswRpt" style="font-size: 15px;"><span class="glyphicon glyphicon-lock"></span> Repeat Password</label>
-                                        <asp:TextBox ID="TextBoxRptPassword" class="form-control" Height="40px" runat="server"  AutoComplete="Disabled" TextMode="Password" ValidationGroup="*"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxRptPassword" class="form-control" Height="40px" runat="server"   AutoCompleteType="Disabled" TextMode="Password" ValidationGroup="*"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
                                         <label for="Email" style="font-size: 15px;"><span class="glyphicon glyphicon-envelope"></span> Email</label>
-                                        <asp:TextBox ID="TextBoxUserEmail" class="form-control" Height="40px" runat="server" AutoComplete="Disabled"></asp:TextBox>
+                                        <asp:TextBox ID="TextBoxUserEmail" class="form-control" Height="40px" runat="server" AutoCompleteType="Disabled"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
                                         <asp:Button ID="ButtonSignUp" runat="server" Text="Sign Up" Style="height: 50px; background-color: black; color: white;" class="btn btn-default btn-block" OnClick="ButtonSignUp_Click" />

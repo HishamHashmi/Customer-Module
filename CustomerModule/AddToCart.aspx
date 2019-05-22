@@ -11,28 +11,28 @@
                              <form action="contact_process.php" method="post" id="contactForm">
                                  <h3 style="text-align:center; padding:0px;">Fill In Your Personal Details</h3>
                                 <div class="form-group col-md-12">
-                                    <asp:TextBox ID="TextBoxName" runat="server" CssClass="form-control" placeholder="Name" AutoComplete="Disabled"></asp:TextBox>
+                                    <asp:TextBox ID="TextBoxName" runat="server" CssClass="form-control" placeholder="Name"  AutoCompleteType="Disabled"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" ErrorMessage=" Name is required!" ControlToValidate="TextBoxName" ForeColor="Red"></asp:RequiredFieldValidator>
 
                                 </div>
                                 <div class="form-group col-md-12">
-                                   <asp:TextBox ID="TextBoxContact" runat="server" CssClass="form-control" placeholder="Contact No" AutoComplete="Disabled"></asp:TextBox>
+                                   <asp:TextBox ID="TextBoxContact" runat="server" CssClass="form-control" placeholder="Contact No"  AutoCompleteType="Disabled"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidaContact" runat="server" ErrorMessage="Contact is required!" ControlToValidate="TextBoxContact" ForeColor="Red"></asp:RequiredFieldValidator>
 
                                 </div>
                                   <div class="form-group col-md-12">
-                                   <asp:TextBox ID="TextBoxAltContact" runat="server" CssClass="form-control" placeholder="Alternate Contact" AutoComplete="Disabled"></asp:TextBox>
+                                   <asp:TextBox ID="TextBoxAltContact" runat="server" CssClass="form-control" placeholder="Alternate Contact"  AutoCompleteType="Disabled"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorrEST" runat="server" ErrorMessage="Alt. Contact is required!" ControlToValidate="TextBoxAltContact" ForeColor="Red"></asp:RequiredFieldValidator>
 
                                 </div>
                                  <div class="form-group col-md-12">
-                                   <asp:TextBox ID="TextBoxAddress" runat="server" CssClass="form-control" placeholder="Address" AutoComplete="Disabled"></asp:TextBox>
+                                   <asp:TextBox ID="TextBoxAddress" runat="server" CssClass="form-control" placeholder="Address"  AutoCompleteType="Disabled"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorAddress" runat="server" ErrorMessage="Address is required!" ControlToValidate="TextBoxAddress" ForeColor="Red"></asp:RequiredFieldValidator>
 
                                      
                                 </div>
                                 <div class="form-group col-md-12">
-                                   <asp:TextBox ID="TextBoxDetails" runat="server" CssClass="form-control" placeholder="Any Specific Details" TextMode="MultiLine" AutoComplete="Disabled"></asp:TextBox>
+                                   <asp:TextBox ID="TextBoxDetails" runat="server" CssClass="form-control" placeholder="Any Specific Details" TextMode="MultiLine"  AutoCompleteType="Disabled"></asp:TextBox>
                                 </div>
                           </div>
                     </div>
