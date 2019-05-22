@@ -94,76 +94,13 @@ namespace CustomerModule {
         protected global::System.Web.UI.WebControls.TextBox TextBoxDetails;
         
         /// <summary>
-        /// ItemLbl control.
+        /// rptCart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ItemLbl;
-        
-        /// <summary>
-        /// LabelItem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelItem;
-        
-        /// <summary>
-        /// Pricelbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Pricelbl;
-        
-        /// <summary>
-        /// LabelPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelPrice;
-        
-        /// <summary>
-        /// QtLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label QtLbl;
-        
-        /// <summary>
-        /// LabelQty control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelQty;
-        
-        /// <summary>
-        /// TotalPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TotalPrice;
-        
-        /// <summary>
-        /// LabelTPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelTPrice;
+        protected global::System.Web.UI.WebControls.Repeater rptCart;
         
         /// <summary>
         /// CheckOut control.
@@ -173,6 +110,15 @@ namespace CustomerModule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button CheckOut;
+        
+        /// <summary>
+        /// Return control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Return;
         
         /// <summary>
         /// SqlDataSource1 control.

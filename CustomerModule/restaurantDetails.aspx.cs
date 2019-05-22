@@ -19,7 +19,8 @@ namespace CustomerModule
                 BindData();
                 BindDataMenu();
                 BindDataDeal();
-            }
+                string qt = string.Format("{0}", Request.QueryString["qty"]);
+             }
         }
         private void BindData()
         {
@@ -39,7 +40,6 @@ namespace CustomerModule
                 address.Text = (sdr["restaurantAddress"].ToString());
                 contactNo.Text = (sdr["restaurantContactNo"].ToString());
                 restEmail.Text = (sdr["restaurantEmail"].ToString());
-
             }
             con.Close();
         }
@@ -64,7 +64,7 @@ namespace CustomerModule
             cmd2.CommandType = CommandType.Text;
             con.Open();
             cmd.ExecuteNonQuery();
-            con.Close();     
+            con.Close();    
             
         }
         private void BindDataDeal()
@@ -358,6 +358,7 @@ namespace CustomerModule
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
+            
         }
     }
 }

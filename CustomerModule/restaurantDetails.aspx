@@ -197,9 +197,7 @@
                                     <p>
                                         <asp:Label ID="ItemDes" runat="server" Text='<%# Eval("itemDescription") %>'></asp:Label>
                                     </p>
-                                    <a class="read_mor_btn" href='<%# "AddToCart.aspx?ID=" + Eval("itemID") %>'>Add To Cart</a>
-                                    <i style="float: right;">
-                                        <label>Quantity: &nbsp;</label><input type="number" name="serialNumber"  style="width:50px;"/></i>
+                                    <a href= '<%# "AddToCart.aspx?rID=" + Eval("restaurantID") + "&cID=" + Eval("itemID") %>' class="read_mor_btn" >Add To Cart</a>
                                 </div>
                             </div>
                         </div>
@@ -256,6 +254,6 @@
                             </div>
                         </div>
                     </section>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectStuffConnectionString %>" SelectCommand="SELECT * FROM [restaurantProfile]"></asp:SqlDataSource>
+       <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectStuffConnectionString %>" SelectCommand="SELECT * FROM [restaurantProfile]"></asp:SqlDataSource>
 </asp:Content>
 

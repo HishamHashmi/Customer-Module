@@ -24,31 +24,65 @@ namespace CustomerModule
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT * from menuItems WHERE itemID=" + Request.QueryString["ID"];
+            cmd.CommandText = "SELECT * from menuItems WHERE itemID=" + Request.QueryString["cID"] ;
             cmd.CommandType = CommandType.Text;
-            SqlDataReader sdr = null;
+            DataSet objDS = new DataSet();
+            SqlDataAdapter objDA = new SqlDataAdapter();
+            objDA.SelectCommand = cmd;
             con.Open();
-            sdr = cmd.ExecuteReader();
-            while (sdr.Read())
-            {
-                LabelItem.Text = (sdr["itemName"].ToString());
-                LabelPrice.Text = (sdr["itemPrice"].ToString());
-                LabelTPrice.Text = sdr["itemPrice"].ToString(); ;
-            }
+            objDA.Fill(objDS);
             con.Close();
-
+            rptCart.DataSource = objDS;
+            rptCart.DataBind();
         }
 
         protected void CheckOut_Click(object sender, EventArgs e)
         {
-               SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandText = "INSERT into homeDelivery(customerName,customerAddress,customerContact,customerAltContact,customerSInfo, customerID, itemID, itemName) values('" + TextBoxName.Text + "','" + TextBoxAddress.Text + "','" + TextBoxContact.Text + "','" + TextBoxAltContact.Text + "','" + TextBoxDetails.Text + "','" + Session["customerAccountID"] + "','" + Request.QueryString["ID"] + "','"+LabelItem.Text+"')";
-                cmd.CommandType = CommandType.Text;
-                con.Open();
+            Button save = (sender as Button);
+            RepeaterItem item = save.NamingContainer as RepeaterItem;
+
+            con.Open();
+            SqlTransaction sqlTran;
+            sqlTran = con.BeginTransaction();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.Transaction = sqlTran;
+            foreach (RepeaterItem rptItem in rptCart.Items)
+            {
+                string itemName = (rptItem.FindControl("itemName") as Label).Text;
+                string itemQuantity = (rptItem.FindControl("itemQuantity") as TextBox).Text;
+                string itemPrice = (rptItem.FindControl("itemPrice") as Label).Text;
+                cmd.CommandText = "INSERT into homeDelivery(customerName,customerAddress,customerContact,customerAltContact,customerSInfo,customerID) values('" + TextBoxName.Text + "','" + TextBoxAddress.Text + "','" + TextBoxContact.Text + "','" + TextBoxAltContact.Text + "','" + TextBoxDetails.Text + "','" + Session["customerAccountID"] + "')";
                 cmd.ExecuteNonQuery();
-                con.Close();
-                Response.Redirect("done.aspx");
+                cmd.CommandText = "INSERT into cart(itemName,itemQuantity,itemPrice,customerID,productID) values('" + itemName + "','" + int.Parse(itemQuantity) + "','" + int.Parse(itemPrice) + "','" + Session["customerAccountID"] + "','" + Request.QueryString["cID"] + "')";
+                cmd.ExecuteNonQuery();
+            }
+
+            sqlTran.Commit();
+            con.Close();
+        }
+   /*     protected void ButtonDelete_Click(object sender, EventArgs e)
+        {
+            string itemName = ((sender as Button).NamingContainer.FindControl("itemName") as Label).Text;
+            string constr = ConfigurationManager.ConnectionStrings["ProjectStuffConnectionString"].ConnectionString;
+
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("DELETE FROM cart WHERE itemName = @itemName", con))
+                {
+                    cmd.Parameters.AddWithValue("@itemName", itemName);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+        }
+    */
+        protected void ReturnButton_Click(object sender, EventArgs e)
+        {
+            if (Request.QueryString["rID"] != null)
+            {
+                Response.Redirect("~/restaurantDetails.aspx?ID=" + Request.QueryString["rID"]);
+            }
         }
     }
 }
